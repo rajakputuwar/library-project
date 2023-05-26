@@ -1,80 +1,50 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @include('layouts.head')
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+<body class="animsition">
+    <div class="page-wrapper">
 
-                    </ul>
+        @include('layouts.header')
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+        @include('layouts.sidebar')
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+        <div class="page-container">
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                        @yield('content')
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+                        @include('layouts.footer')
+                    </div>
                 </div>
             </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+        </div>
     </div>
+    <!-- Jquery JS-->
+    <script src="{{ asset('') }}design/vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="{{ asset('') }}design/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="{{ asset('') }}design/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="{{ asset('') }}design/vendor/slick/slick.min.js"></script>
+    <script src="{{ asset('') }}design/vendor/wow/wow.min.js"></script>
+    <script src="{{ asset('') }}design/vendor/animsition/animsition.min.js"></script>
+    <script src="{{ asset('') }}design/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="{{ asset('') }}design/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="{{ asset('') }}design/vendor/counter-up/jquery.counterup.min.js"></script>
+    <script src="{{ asset('') }}design/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="{{ asset('') }}design/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="{{ asset('') }}design/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="{{ asset('') }}design/vendor/select2/select2.min.js"></script>
+    <!-- Main JS-->
+    <script src="{{ asset('') }}design/js/main.js"></script>
+
 </body>
+
 </html>
+<!-- end document-->
