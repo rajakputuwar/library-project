@@ -6,7 +6,7 @@
 <meta name="keywords" content="au theme template">
 
 <!-- Title Page-->
-<title>{{ yield('title') }}</title>
+<title>@yield('title') </title>
 
 <!-- Fontfaces CSS-->
 <link href="{{ asset('') }}design/css/font-face.css" rel="stylesheet" media="all">

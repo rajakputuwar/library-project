@@ -16,6 +16,17 @@
                         </li>
                     </ul>
                 </li>
+                <li class="active has-sub">
+                    <a class="js-arrow" href="#">Category</a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li>
+                            <a href="">Add Category</a>
+                        </li>
+                        <li>
+                            <a href=""></a>
+                        </li>
+                    </ul>
+                </li>
                 <li>
                     <a href="{{ asset('') }}design/chart.html">
                         <i class="fas fa-chart-bar"></i>Charts</a>
