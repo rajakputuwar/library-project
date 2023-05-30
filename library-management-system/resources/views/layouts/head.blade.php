@@ -1,30 +1,44 @@
-<!-- Required meta tags-->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="au theme template">
-<meta name="author" content="Hau Nguyen">
-<meta name="keywords" content="au theme template">
+<head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
 
-<!-- Title Page-->
-<title>@yield('title') </title>
+    <title>@yield('title')</title>
 
-<!-- Fontfaces CSS-->
-<link href="{{ asset('') }}design/css/font-face.css" rel="stylesheet" media="all">
-<link href="{{ asset('') }}design/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-<link href="{{ asset('') }}design/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-<link href="{{ asset('') }}design/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <meta name="description" content="" />
 
-<!-- Bootstrap CSS-->
-<link href="{{ asset('') }}design/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('') }}design/assets/img/favicon/favicon.ico" />
 
-<!-- Vendor CSS-->
-<link href="{{ asset('') }}design/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-<link href="{{ asset('') }}design/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-<link href="{{ asset('') }}design/vendor/wow/animate.css" rel="stylesheet" media="all">
-<link href="{{ asset('') }}design/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-<link href="{{ asset('') }}design/vendor/slick/slick.css" rel="stylesheet" media="all">
-<link href="{{ asset('') }}design/vendor/select2/select2.min.css" rel="stylesheet" media="all">
-<link href="{{ asset('') }}design/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
 
-<!-- Main CSS-->
-<link href="{{ asset('') }}design/css/theme.css" rel="stylesheet" media="all">
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="{{ asset('') }}design/assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="{{ asset('') }}design/assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{{ asset('') }}design/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{{ asset('') }}design/assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="{{ asset('') }}design/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <link rel="stylesheet" href="{{ asset('') }}design/assets/vendor/libs/apex-charts/apex-charts.css" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="{{ asset('') }}design/assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="{{ asset('') }}design/assets/js/config.js"></script>
+  </head>
