@@ -63,6 +63,33 @@
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">---------</span>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <div data-i18n="Account Settings">Books</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('categories.index') }}" class="menu-link">
+                        <div data-i18n="Notifications">Categories</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('books.index') }}" class="menu-link">
+                        <div data-i18n="Connections">Books</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        {{-- <li class="menu-item">
+            <a href="{{ route('books.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-table"></i>
+                <div data-i18n="Tables">Books</div>
+            </a>
+        </li> --}}
 
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Pages</span>

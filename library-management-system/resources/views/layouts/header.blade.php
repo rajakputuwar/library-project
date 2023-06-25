@@ -1,9 +1,9 @@
-<header class="header-desktop mt-5 p-1">
-    <div class="section__content section__content--p30">
-        <div class="container-fluid">
-            <div class="header-wrap">
-                <p class="h4">Library Management System</p>
-            </div>
-        </div>
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand fs-3" href="{{ route('dashboard') }}">Library Management System</a>
+      <form class="d-flex">
+        <p class="px-3 fs-4">{{ Auth::user()->name }}</p>
+        <a href="{{ route('logout') }}" class="fs-5 mt-1">Logout</a>
+      </form>
     </div>
-</header>
+  </nav>
