@@ -12,8 +12,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::get();
-        return view('books.index',compact('books'));
+        $books=Book::get();
+        return view('index',compact('books'));
     }
 
     /**
