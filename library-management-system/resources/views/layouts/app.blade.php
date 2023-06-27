@@ -1,68 +1,40 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 @include('layouts.head')
 
-  <body>
-    <!-- Layout wrapper -->
-    <div class="layout-wrapper layout-content-navbar">
-      <div class="layout-container">
-        <!-- Menu -->
-        @include('layouts.sidebar')
-        <!-- / Menu -->
+<body class="">
+  <div class="wrapper ">
+    @include('layouts.sidebar')
+    <div class="main-panel">
+      <!-- Navbar -->
+      @include('layouts.header')
+      <!-- End Navbar -->
+      @yield('content')
 
-        <!-- Layout container -->
-        <div class="layout-page">
-
-          <!-- Navbar -->
-          @include('layouts.header')
-          <!-- / Navbar -->
-
-          <!-- Content wrapper -->
-          <div class="content-wrapper">
-
-            <!-- Content -->
-            <div class="container-xxl flex-grow-1 container-p-y">
-            @yield('content')
-            </div>
-            <!-- / Content -->
-
-            <!-- Footer -->
-            @include('layouts.footer')
-            <!-- / Footer -->
-
-          </div>
-          <!-- Content wrapper -->
-        </div>
-        <!-- / Layout page -->
-      </div>
-
-      <!-- Overlay -->
-      <div class="layout-overlay layout-menu-toggle"></div>
+      @include('layouts.footer')
     </div>
-    <!-- / Layout wrapper -->
+  </div>
+  <!--   Core JS Files   -->
+  <script src="{{ asset('') }}design/assets/js/core/jquery.min.js"></script>
+  <script src="{{ asset('') }}design/assets/js/core/popper.min.js"></script>
+  <script src="{{ asset('') }}design/assets/js/core/bootstrap.min.js"></script>
+  <script src="{{ asset('') }}design/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chart JS -->
+  <script src="{{ asset('') }}design/assets/js/plugins/chartjs.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="{{ asset('') }}design/assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="{{ asset('') }}design/assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+  <script src="{{ asset('') }}design/assets/demo/demo.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+      demo.initChartsPages();
+    });
+  </script>
+</body>
 
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-    <script src="{{ asset('') }}design/assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="{{ asset('') }}design/assets/vendor/libs/popper/popper.js"></script>
-    <script src="{{ asset('') }}design/assets/vendor/js/bootstrap.js"></script>
-    <script src="{{ asset('') }}design/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-
-    <script src="{{ asset('') }}design/assets/vendor/js/menu.js"></script>
-    <!-- endbuild -->
-
-    <!-- Vendors JS -->
-    <script src="{{ asset('') }}design/assets/vendor/libs/apex-charts/apexcharts.js"></script>
-
-    <!-- Main JS -->
-    <script src="{{ asset('') }}design/assets/js/main.js"></script>
-
-    <!-- Page JS -->
-    <script src="{{ asset('') }}design/assets/js/dashboards-analytics.js"></script>
-
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-  </body>
 </html>

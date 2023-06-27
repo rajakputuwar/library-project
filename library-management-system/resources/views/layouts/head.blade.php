@@ -1,44 +1,18 @@
 <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
-    />
-
-    <title>@yield('title')</title>
-
-    <meta name="description" content="" />
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('') }}design/assets/img/favicon/favicon.ico" />
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="{{ asset('') }}design/assets/vendor/fonts/boxicons.css" />
-
-    <!-- Core CSS -->
-    <link rel="stylesheet" href="{{ asset('') }}design/assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="{{ asset('') }}design/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="{{ asset('') }}design/assets/css/demo.css" />
-
-    <!-- Vendors CSS -->
-    <link rel="stylesheet" href="{{ asset('') }}design/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-
-    <link rel="stylesheet" href="{{ asset('') }}design/assets/vendor/libs/apex-charts/apex-charts.css" />
-
-    <!-- Page CSS -->
-
-    <!-- Helpers -->
-    <script src="{{ asset('') }}design/assets/vendor/js/helpers.js"></script>
-
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="{{ asset('') }}design/assets/js/config.js"></script>
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('') }}design/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="{{ asset('') }}design/assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+      Paper Dashboard 2 by Creative Tim
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="{{ asset('') }}design/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{{ asset('') }}design/assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="{{ asset('') }}design/assets/demo/demo.css" rel="stylesheet" />
   </head>
