@@ -1,18 +1,15 @@
 <head>
-    <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('') }}design/assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="{{ asset('') }}design/assets/img/favicon.png">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>
-      Paper Dashboard 2 by Creative Tim
-    </title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-    <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <!-- CSS Files -->
-    <link href="{{ asset('') }}design/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="{{ asset('') }}design/assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="{{ asset('') }}design/assets/demo/demo.css" rel="stylesheet" />
-  </head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon icon-->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('') }}design/assets/images/favicon/favicon.ico">
+    <!-- Libs CSS -->
+    <link href="{{ asset('') }}design/assets/libs/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="{{ asset('') }}design/assets/libs/dropzone/dist/dropzone.css" rel="stylesheet">
+    <link href="{{ asset('') }}design/assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" />
+    <link href="{{ asset('') }}design/assets/libs/prismjs/themes/prism-okaidia.css" rel="stylesheet">
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="{{ asset('') }}design/assets/css/theme.min.css">
+    <title>Homepage | Dash Ui - Bootstrap 5 Admin Dashboard Template</title>
+</head>

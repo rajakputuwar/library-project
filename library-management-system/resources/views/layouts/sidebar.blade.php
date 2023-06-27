@@ -1,68 +1,94 @@
-<div class="sidebar" data-color="white" data-active-color="danger">
-    <div class="logo">
-      <a href="https://www.creative-tim.com" class="simple-text logo-mini">
-        <div class="logo-image-small">
-          <img src="../assets/img/logo-small.png">
-        </div>
-        <!-- <p>CT</p> -->
-      </a>
-      <a href="https://www.creative-tim.com" class="simple-text logo-normal">
-        Creative Tim
-        <!-- <div class="logo-image-big">
-          <img src="../assets/img/logo-big.png">
-        </div> -->
-      </a>
+<nav class="navbar-vertical navbar">
+    <div class="nav-scroller">
+        <!-- Brand logo -->
+        <a class="navbar-brand" href="{{ asset('') }}design/index.html">
+            <img src="{{ asset('') }}design/assets/images/brand/logo/logo.svg" alt="" />
+        </a>
+        <!-- Navbar nav -->
+        <ul class="navbar-nav flex-column" id="sideNavbar">
+            <li class="nav-item">
+                <a class="nav-link has-arrow  active " href="{{ asset('') }}design/index.html">
+                    <i data-feather="home" class="nav-icon icon-xs me-2"></i> Dashboard
+                </a>
+
+            </li>
+            <!-- Nav item -->
+            <li class="nav-item">
+                <div class="navbar-heading">Layouts & Pages</div>
+            </li>
+            <!-- Nav item -->
+            <li class="nav-item">
+                <a class="nav-link has-arrow  collapsed " href="#!" data-bs-toggle="collapse"
+                    data-bs-target="#navPages" aria-expanded="false" aria-controls="navPages">
+                    <i data-feather="layers" class="nav-icon icon-xs me-2">
+                    </i> Pages
+                </a>
+                <div id="navPages" class="collapse " data-bs-parent="#sideNavbar">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ asset('') }}design/pages/profile.html">
+                                Profile
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link has-arrow   " href="{{ asset('') }}design/pages/settings.html">
+                                Settings
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ asset('') }}design/pages/billing.html">
+                                Billing
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ asset('') }}design/pages/pricing.html">
+                                Pricing
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ asset('') }}design/pages/404-error.html">
+                                404 Error
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </li>
+            <!-- Nav item -->
+            <li class="nav-item">
+                <a class="nav-link has-arrow  collapsed " href="#!" data-bs-toggle="collapse"
+                    data-bs-target="#navAuthentication" aria-expanded="false" aria-controls="navAuthentication">
+                    <i data-feather="lock" class="nav-icon icon-xs me-2">
+                    </i> Authentication
+                </a>
+                <div id="navAuthentication" class="collapse " data-bs-parent="#sideNavbar">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ asset('') }}design/pages/sign-in.html"> Sign
+                                In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  " href="{{ asset('') }}design/pages/sign-up.html"> Sign
+                                Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ asset('') }}design/pages/forget-password.html">
+                                Forget Password
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{ asset('') }}design/pages/layout.html">
+                    <i data-feather="sidebar" class="nav-icon icon-xs me-2">
+                    </i>
+                    Layouts
+                </a>
+            </li>
+        </ul>
+
     </div>
-    <div class="sidebar-wrapper">
-      <ul class="nav">
-        <li class="active ">
-          <a href="./dashboard.html">
-            <i class="nc-icon nc-bank"></i>
-            <p>Dashboard</p>
-          </a>
-        </li>
-        <li>
-          <a href="./icons.html">
-            <i class="nc-icon nc-diamond"></i>
-            <p>Icons</p>
-          </a>
-        </li>
-        <li>
-          <a href="./map.html">
-            <i class="nc-icon nc-pin-3"></i>
-            <p>Maps</p>
-          </a>
-        </li>
-        <li>
-          <a href="./notifications.html">
-            <i class="nc-icon nc-bell-55"></i>
-            <p>Notifications</p>
-          </a>
-        </li>
-        <li>
-          <a href="./user.html">
-            <i class="nc-icon nc-single-02"></i>
-            <p>User Profile</p>
-          </a>
-        </li>
-        <li>
-          <a href="./tables.html">
-            <i class="nc-icon nc-tile-56"></i>
-            <p>Table List</p>
-          </a>
-        </li>
-        <li>
-          <a href="./typography.html">
-            <i class="nc-icon nc-caps-small"></i>
-            <p>Typography</p>
-          </a>
-        </li>
-        <li class="active-pro">
-          <a href="./upgrade.html">
-            <i class="nc-icon nc-spaceship"></i>
-            <p>Upgrade to PRO</p>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
+</nav>
