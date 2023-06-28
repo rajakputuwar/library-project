@@ -12,4 +12,9 @@
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{ asset('') }}design/assets/css/theme.min.css">
     <title>Homepage | Dash Ui - Bootstrap 5 Admin Dashboard Template</title>
+    <style>
+        .invalid-feedback{
+            display: block;
+        }
+    </style>
 </head>

@@ -23,9 +23,9 @@ class StoreBookRequest extends FormRequest
     {
         return [
             'name'=>'required',
-            'auther'=>'required',
-            'released_date'=>'required',
-            'price'=>'required'
+            'author'=>'required',
+            'released_date'=>'required|date',
+            'price'=>'required|integer'
         ];
     }
 }

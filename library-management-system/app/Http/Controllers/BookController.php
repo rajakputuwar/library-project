@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreBookRequest;
 use App\Models\Book;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class BookController extends Controller
     public function index()
     {
         $books=Book::get();
-        return view('index',compact('books'));
+        return view('books.index',compact('books'));
     }
 
     /**
@@ -21,14 +22,14 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('books.add_book');
-        
+        return view('books.add_books');
+
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreBookRequest $request)
     {
         Book::create($request->validated());
         return redirect(route('books.index'))->with('success','book stored successfully');
@@ -48,7 +49,7 @@ class BookController extends Controller
     public function edit(Book $book)
     {
         return view('books.edit_books',compact('books'));
-        
+
     }
 
     /**
