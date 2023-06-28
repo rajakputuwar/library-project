@@ -14,41 +14,25 @@
             </li>
             <!-- Nav item -->
             <li class="nav-item">
-                <div class="navbar-heading">Layouts & Pages</div>
+                <div class="navbar-heading">Books Management</div>
             </li>
             <!-- Nav item -->
             <li class="nav-item">
                 <a class="nav-link has-arrow  collapsed " href="#!" data-bs-toggle="collapse"
                     data-bs-target="#navPages" aria-expanded="false" aria-controls="navPages">
                     <i data-feather="layers" class="nav-icon icon-xs me-2">
-                    </i> Pages
+                    </i> Books
                 </a>
                 <div id="navPages" class="collapse " data-bs-parent="#sideNavbar">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link " href="{{ asset('') }}design/pages/profile.html">
-                                Profile
+                            <a class="nav-link " href="{{ route('categories.index') }}">
+                                Categories
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link has-arrow   " href="{{ asset('') }}design/pages/settings.html">
-                                Settings
-                            </a>
-
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="{{ asset('') }}design/pages/billing.html">
-                                Billing
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="{{ asset('') }}design/pages/pricing.html">
-                                Pricing
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="{{ asset('') }}design/pages/404-error.html">
-                                404 Error
+                            <a class="nav-link has-arrow   " href="{{ route('books.index') }}">
+                                Books
                             </a>
                         </li>
                     </ul>

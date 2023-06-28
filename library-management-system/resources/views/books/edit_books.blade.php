@@ -17,9 +17,9 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="exampleInputEmail2" class="form-label">Auther</label>
-                <input type="text" class="form-control" name="auther" id="exampleInputEmail2" value="{{ $book->auther }}">
-                @error('auther')
+                <label for="exampleInputEmail2" class="form-label">author</label>
+                <input type="text" class="form-control" name="author" id="exampleInputEmail2" value="{{ $book->author }}">
+                @error('author')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
@@ -37,7 +37,7 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
-        
+
             {{-- <fieldset class="row mb-3">
                 <legend class="col-form-label col-sm-2 pt-0">Status</legend>
                 <div class="col-sm-10">

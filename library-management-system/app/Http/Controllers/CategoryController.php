@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreBookRequest;
+use App\Http\Requests\StoreCategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -13,7 +15,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::get();
-        return view('admin.category.index',compact('categories'));
+        return view('categories.index',compact('categories'));
     }
 
     /**
@@ -21,18 +23,17 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('categories.add_category');
-        
+        return view('categories.add_categories');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
         Category::create($request->validated());
         return redirect(route('categories.index'))->with('success','category stored successfully');
-        
+
     }
 
     /**
@@ -40,7 +41,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        
+
     }
 
     /**
@@ -48,8 +49,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('categories.edit_categpries',compact('category'));
-        
+        return view('categories.edit_categories',compact('category'));
+
     }
 
     /**

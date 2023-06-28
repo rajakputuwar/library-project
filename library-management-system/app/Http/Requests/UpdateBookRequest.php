@@ -23,7 +23,7 @@ class UpdateBookRequest extends FormRequest
     {
         return [
             'name'=>'required',
-            'auther'=>'required',
+            'author'=>'required',
             'released_date'=>'required',
             'price'=>'required'
         ];
