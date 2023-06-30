@@ -11,7 +11,7 @@
     <link href="{{ asset('') }}design/assets/libs/prismjs/themes/prism-okaidia.css" rel="stylesheet">
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{ asset('') }}design/assets/css/theme.min.css">
-    <title>Homepage | Dash Ui - Bootstrap 5 Admin Dashboard Template</title>
+    <title>@yield('title')</title>
     <style>
         .invalid-feedback{
             display: block;

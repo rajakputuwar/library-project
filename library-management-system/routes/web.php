@@ -21,13 +21,14 @@ use App\Http\Controllers\CategoryController;
 
 Auth::routes();
 
-Route::group(['middleware'=>'auth'],function(){
-
+Route::group(['middleware' => ['auth']], function () {
     Route::get('/', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+});
 
+Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::resource('categories', CategoryController::class);
     Route::resource('books', BookController::class);
-    Route::get('logout',[LoginController::class,'logout'])->name('logout');
 });
