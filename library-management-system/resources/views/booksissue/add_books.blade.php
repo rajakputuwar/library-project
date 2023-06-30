@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Add Category')
+@section('title', 'Add BookIssue')
 
 @section('content')
     <div class="col-12">
         <div class="card m-2 p-4">
-            <form class="" action="{{ route('books.store') }}" method="post" enctype="multipart/form-data">
+            <form class="" action="{{ route('booksissue.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
 
                 <div class="mb-3">
