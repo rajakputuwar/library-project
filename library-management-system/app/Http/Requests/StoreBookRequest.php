@@ -22,6 +22,7 @@ class StoreBookRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'category_id'=>'required',
             'name'=>'required',
             'author'=>'required',
             'released_date'=>'required|date',

@@ -9,11 +9,16 @@
                 @csrf
 
                 <div class="mb-3">
-                    <label class="form-label" for="selectOne">Select <span class="text-secondary">(Optional)</span></label>
-                    <select class="form-select" aria-label="Default select example">
+                    <label class="form-label" for="selectOne">Select Category<span class="text-secondary"></span></label>
+                    <select class="form-select" aria-label="Default select example" name="category_id">
                         <option>Open this select menu</option>
-                        <option value="1">One</option>
+                        @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->category }}</option>
+                        @endforeach
                     </select>
+                    @error('category_id')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Name</label>

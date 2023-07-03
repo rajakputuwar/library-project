@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreBookRequest;
 use App\Models\Book;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -22,7 +23,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('books.add_books');
+        $categories = Category::get();
+        return view('books.add_books',compact('categories'));
 
     }
 
@@ -31,7 +33,8 @@ class BookController extends Controller
      */
     public function store(StoreBookRequest $request)
     {
-        Book::create($request->validated());
+        $category = Category::find($request->category_id);
+        $category->books()->create($request->validated());
         return redirect(route('books.index'))->with('success','book stored successfully');
     }
 

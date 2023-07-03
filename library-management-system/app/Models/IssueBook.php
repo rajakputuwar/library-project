@@ -8,11 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class IssueBook extends Model
 {
     use HasFactory;
-    protected $fillable=['','','',''];
+    protected $fillable=['user_id','book_id','issued_on'];
 
-    public function issues()
+    public function book()
     {
-        // return $this->hasMany(Book::class);
+        return $this->belongsTo(Book::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
 }

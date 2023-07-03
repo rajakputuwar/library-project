@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
-
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\IssueBookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,13 +23,12 @@ use App\Http\Controllers\CategoryController;
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/',[DashboardController::class,'index'])->name('dashboard');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::resource('categories', CategoryController::class);
     Route::resource('books', BookController::class);
+    Route::resource('issue-books',IssueBookController::class);
 });
