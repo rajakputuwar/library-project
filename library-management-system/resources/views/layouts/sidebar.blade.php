@@ -7,7 +7,7 @@
         <!-- Navbar nav -->
         <ul class="navbar-nav flex-column" id="sideNavbar">
             <li class="nav-item">
-                <a class="nav-link has-arrow  active " href="{{ asset('') }}design/index.html">
+                <a class="nav-link has-arrow  active " href="{{ route('dashboard') }}">
                     <i data-feather="home" class="nav-icon icon-xs me-2"></i> Dashboard
                 </a>
 
@@ -30,37 +30,11 @@
             <li class="nav-item">
                 <div class="navbar-heading">Books Management</div>
             </li>
-            <!-- Nav item -->
             <li class="nav-item">
-                <a class="nav-link has-arrow  collapsed " href="#!" data-bs-toggle="collapse"
-                    data-bs-target="#navAuthentication" aria-expanded="false" aria-controls="navAuthentication">
-                    <i data-feather="lock" class="nav-icon icon-xs me-2">
-                    </i> Authentication
-                </a>
-                <div id="navAuthentication" class="collapse " data-bs-parent="#sideNavbar">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link " href="{{ asset('') }}design/pages/sign-in.html"> Sign
-                                In</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link  " href="{{ asset('') }}design/pages/sign-up.html"> Sign
-                                Up</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="{{ asset('') }}design/pages/forget-password.html">
-                                Forget Password
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="{{ asset('') }}design/pages/layout.html">
+                <a class="nav-link " href="{{ route('issue-books.index') }}">
                     <i data-feather="sidebar" class="nav-icon icon-xs me-2">
                     </i>
-                    Layouts
+                    Issue Books
                 </a>
             </li>
         </ul>

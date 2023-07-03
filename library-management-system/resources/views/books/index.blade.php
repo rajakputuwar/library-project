@@ -15,6 +15,7 @@
                     <th scope="col">Name</th>
                     <th scope="col">author</th>
                     <th scope="col">Released_date</th>
+                    <th scope="col">Category</th>
                     <th scope="col">Price</th>
                     <th scope="col">Action</th>
                 </tr>
@@ -26,6 +27,7 @@
                         <td>{{ $book->name }}</td>
                         <td>{{ $book->author }}</td>
                         <td>{{ $book->released_date }}</td>
+                        <td>{{ $book->category->category }}</td>
                         <td>{{ $book->price }}</td>
                         <td class="d-flex">
                             <a href="{{ route('books.edit', $book->id) }}"><button type="submit"

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\IssueBook;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class IssueBookController extends Controller
@@ -12,8 +14,8 @@ class IssueBookController extends Controller
      */
     public function index()
     {
-        $issues=IssueBook::get();
-        return view('booksissue.index',compact('issues'));
+        $issueBooks = IssueBook::get();
+        return view('books_issue.index',compact('issueBooks'));
     }
 
     /**
@@ -21,7 +23,10 @@ class IssueBookController extends Controller
      */
     public function create()
     {
-        return view('booksissue.add_books');
+        $books = Book::get();
+        $users = User::get();
+
+        return view('books_issue.add_issue_books',compact('books','users'));
     }
 
     /**
@@ -29,8 +34,12 @@ class IssueBookController extends Controller
      */
     public function store(Request $request)
     {
-        Issue::create($request->validated());
-        return redirect(route('booksissue.index'))->with('success','book stored successfully');
+
+        IssueBook::create($request->all()+[
+            'book_id'=>$request->book_id,
+            'user_id'=>$request->user_id,
+        ]);
+        return redirect(route('issue-books.index'))->with('success','book stored successfully');
     }
 
     /**
@@ -46,7 +55,7 @@ class IssueBookController extends Controller
      */
     public function edit(IssueBook $issueBook)
     {
-        return view('booksissue.edit_books',compact('issueBook'));
+        return view('issue-books.edit_issue_books',compact('issueBook'));
     }
 
     /**
@@ -55,7 +64,7 @@ class IssueBookController extends Controller
     public function update(Request $request, IssueBook $issueBook)
     {
         $issueBook->update($request->validated());
-        return redirect(route('booksissue.index'))->with('success','book updated successfully');
+        return redirect(route('issue-books.index'))->with('success','book updated successfully');
     }
 
     /**
@@ -64,6 +73,6 @@ class IssueBookController extends Controller
     public function destroy(IssueBook $issueBook)
     {
         $issueBook->delete();
-        return redirect(route('bookissue.index'))->with('success','book deleted successfully');
+        return redirect(route('issue-books.index'))->with('success','book deleted successfully');
     }
 }
