@@ -1,7 +1,7 @@
 @extends('layouts.app')
-@section('title','Dashboard')
+@section('title', 'Dashboard')
 @section('content')
-<div class="bg-primary pt-10 pb-21"></div>
+    <div class="bg-primary pt-10 pb-21"></div>
 
     <div class="container-fluid mt-n22 px-6">
         <div class="row">
@@ -24,19 +24,17 @@
                     <!-- card body -->
                     <div class="card-body">
                         <!-- heading -->
-                        <div class="d-flex justify-content-between align-items-center
-        mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
                             <div>
-                                <h4 class="mb-0">Projects</h4>
+                                <h4 class="mb-0">Users</h4>
                             </div>
-                            <div class="icon-shape icon-md bg-light-primary text-primary
-          rounded-2">
-                                <i class="bi bi-briefcase fs-4"></i>
+                            <div class="icon-shape icon-md bg-light-primary text-primary rounded-2">
+                                <i class="bi bi-people fs-4"></i>
                             </div>
                         </div>
                         <!-- project number -->
                         <div>
-                            <h1 class="fw-bold">18</h1>
+                            <h1 class="fw-bold">{{ $users->count() }}</h1>
                             <p class="mb-0"><span class="text-dark me-2">2</span>Completed</p>
                         </div>
                     </div>
@@ -48,19 +46,17 @@
                     <!-- card body -->
                     <div class="card-body">
                         <!-- heading -->
-                        <div class="d-flex justify-content-between align-items-center
-        mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
                             <div>
-                                <h4 class="mb-0">Active Task</h4>
+                                <h4 class="mb-0">Books</h4>
                             </div>
-                            <div class="icon-shape icon-md bg-light-primary text-primary
-          rounded-2">
+                            <div class="icon-shape icon-md bg-light-primary text-primary rounded-2">
                                 <i class="bi bi-list-task fs-4"></i>
                             </div>
                         </div>
                         <!-- project number -->
                         <div>
-                            <h1 class="fw-bold">132</h1>
+                            <h1 class="fw-bold">{{ $books->count() }}</h1>
                             <p class="mb-0"><span class="text-dark me-2">28</span>Completed</p>
                         </div>
                     </div>
@@ -72,19 +68,17 @@
                     <!-- card body -->
                     <div class="card-body">
                         <!-- heading -->
-                        <div class="d-flex justify-content-between align-items-center
-        mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
                             <div>
-                                <h4 class="mb-0">Teams</h4>
+                                <h4 class="mb-0">Books Issued</h4>
                             </div>
-                            <div class="icon-shape icon-md bg-light-primary text-primary
-          rounded-2">
+                            <div class="icon-shape icon-md bg-light-primary text-primary rounded-2">
                                 <i class="bi bi-people fs-4"></i>
                             </div>
                         </div>
                         <!-- project number -->
                         <div>
-                            <h1 class="fw-bold">12</h1>
+                            <h1 class="fw-bold">{{ $booksIssued->count() }}</h1>
                             <p class="mb-0"><span class="text-dark me-2">1</span>Completed</p>
                         </div>
                     </div>
@@ -97,13 +91,11 @@
                     <!-- card body -->
                     <div class="card-body">
                         <!-- heading -->
-                        <div class="d-flex justify-content-between align-items-center
-        mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
                             <div>
-                                <h4 class="mb-0">Productivity</h4>
+                                <h4 class="mb-0">Books Returned</h4>
                             </div>
-                            <div class="icon-shape icon-md bg-light-primary text-primary
-          rounded-2">
+                            <div class="icon-shape icon-md bg-light-primary text-primary rounded-2">
                                 <i class="bi bi-bullseye fs-4"></i>
                             </div>
                         </div>
@@ -140,11 +132,9 @@
                             <tbody>
                                 <tr>
                                     <td class="align-middle">
-                                        <div class="d-flex
-                align-items-center">
+                                        <div class="d-flex align-items-center">
                                             <div>
-                                                <div class="icon-shape icon-md border p-4
-                    rounded-1">
+                                                <div class="icon-shape icon-md border p-4 rounded-1">
                                                     <img src="assets/images/brand/dropbox-logo.svg" alt="">
                                                 </div>
                                             </div>
@@ -156,8 +146,7 @@
                                         </div>
                                     </td>
                                     <td class="align-middle">34</td>
-                                    <td class="align-middle"><span class="badge
-                bg-warning">Medium</span>
+                                    <td class="align-middle"><span class="badge bg-warning">Medium</span>
                                     </td>
                                     <td class="align-middle">
                                         <div class="avatar-group">
@@ -174,9 +163,7 @@
                                                     class="rounded-circle">
                                             </span>
                                             <span class="avatar avatar-sm avatar-primary">
-                                                <span
-                                                    class="avatar-initials rounded-circle
-                    fs-6">+5</span>
+                                                <span class="avatar-initials rounded-circle fs-6">+5</span>
                                             </span>
                                         </div>
                                     </td>
@@ -192,11 +179,9 @@
                                 </tr>
                                 <tr>
                                     <td class="align-middle">
-                                        <div class="d-flex
-                align-items-center">
+                                        <div class="d-flex align-items-center">
                                             <div>
-                                                <div class="icon-shape icon-md border p-4
-                    rounded-1">
+                                                <div class="icon-shape icon-md border p-4 rounded-1">
                                                     <img src="assets/images/brand/slack-logo.svg" alt="">
                                                 </div>
                                             </div>
@@ -207,8 +192,7 @@
                                         </div>
                                     </td>
                                     <td class="align-middle">47</td>
-                                    <td class="align-middle"><span class="badge
-                bg-danger">High</span>
+                                    <td class="align-middle"><span class="badge bg-danger">High</span>
                                     </td>
                                     <td class="align-middle">
                                         <div class="avatar-group">
@@ -225,9 +209,7 @@
                                                     class="rounded-circle">
                                             </span>
                                             <span class="avatar avatar-sm avatar-primary">
-                                                <span
-                                                    class="avatar-initials rounded-circle
-                    fs-6">+5</span>
+                                                <span class="avatar-initials rounded-circle fs-6">+5</span>
                                             </span>
                                         </div>
                                     </td>
@@ -243,11 +225,9 @@
                                 </tr>
                                 <tr>
                                     <td class="align-middle">
-                                        <div class="d-flex
-                align-items-center">
+                                        <div class="d-flex align-items-center">
                                             <div>
-                                                <div class="icon-shape icon-md border p-4
-                    rounded-1">
+                                                <div class="icon-shape icon-md border p-4 rounded-1">
                                                     <img src="assets/images/brand/github-logo.svg" alt="">
                                                 </div>
                                             </div>
@@ -274,9 +254,7 @@
                                                     class="rounded-circle">
                                             </span>
                                             <span class="avatar avatar-sm avatar-primary">
-                                                <span
-                                                    class="avatar-initials rounded-circle
-                    fs-6">+1</span>
+                                                <span class="avatar-initials rounded-circle fs-6">+1</span>
                                             </span>
                                         </div>
                                     </td>
@@ -292,11 +270,9 @@
                                 </tr>
                                 <tr>
                                     <td class="align-middle">
-                                        <div class="d-flex
-                align-items-center">
+                                        <div class="d-flex align-items-center">
                                             <div>
-                                                <div class="icon-shape icon-md border p-4
-                    rounded-1">
+                                                <div class="icon-shape icon-md border p-4 rounded-1">
                                                     <img src="assets/images/brand/3dsmax-logo.svg" alt="">
                                                 </div>
                                             </div>
@@ -307,8 +283,7 @@
                                         </div>
                                     </td>
                                     <td class="align-middle">89</td>
-                                    <td class="align-middle"><span class="badge
-                bg-warning">Medium</span>
+                                    <td class="align-middle"><span class="badge bg-warning">Medium</span>
                                     </td>
                                     <td class="align-middle">
                                         <div class="avatar-group">
@@ -325,9 +300,7 @@
                                                     class="rounded-circle">
                                             </span>
                                             <span class="avatar avatar-sm avatar-primary">
-                                                <span
-                                                    class="avatar-initials rounded-circle
-                    fs-6">+5</span>
+                                                <span class="avatar-initials rounded-circle fs-6">+5</span>
                                             </span>
                                         </div>
                                     </td>
@@ -343,12 +316,9 @@
                                 </tr>
                                 <tr>
                                     <td class="align-middle">
-                                        <div class="d-flex
-                align-items-center">
+                                        <div class="d-flex align-items-center">
                                             <div>
-                                                <div
-                                                    class="icon-shape icon-md border p-4 rounded
-                    bg-primary">
+                                                <div class="icon-shape icon-md border p-4 rounded bg-primary">
                                                     <img src="assets/images/brand/layers-logo.svg" alt="">
                                                 </div>
                                             </div>
@@ -360,8 +330,7 @@
                                         </div>
                                     </td>
                                     <td class="align-middle">108</td>
-                                    <td class="align-middle"><span class="badge
-                bg-success">Track</span>
+                                    <td class="align-middle"><span class="badge bg-success">Track</span>
                                     </td>
                                     <td class="align-middle">
                                         <div class="avatar-group">
@@ -378,9 +347,7 @@
                                                     class="rounded-circle">
                                             </span>
                                             <span class="avatar avatar-sm avatar-primary">
-                                                <span
-                                                    class="avatar-initials rounded-circle
-                    fs-6">+5</span>
+                                                <span class="avatar-initials rounded-circle fs-6">+5</span>
                                             </span>
                                         </div>
                                     </td>
@@ -398,8 +365,7 @@
                                 </tr>
                                 <tr>
                                     <td class="align-middle border-bottom-0">
-                                        <div class="d-flex
-                align-items-center">
+                                        <div class="d-flex align-items-center">
                                             <div>
                                                 <div class="icon-shape icon-md border p-4 rounded-1">
                                                     <img src="assets/images/brand/github-logo.svg" alt="">
@@ -430,9 +396,7 @@
                                                     class="rounded-circle">
                                             </span>
                                             <span class="avatar avatar-sm avatar-primary">
-                                                <span
-                                                    class="avatar-initials rounded-circle
-                    fs-6">+1</span>
+                                                <span class="avatar-initials rounded-circle fs-6">+1</span>
                                             </span>
                                         </div>
                                     </td>
@@ -467,8 +431,7 @@
                 <div class="card h-100">
                     <!-- card body  -->
                     <div class="card-body">
-                        <div class="d-flex align-items-center
-        justify-content-between">
+                        <div class="d-flex align-items-center justify-content-between">
                             <div>
                                 <h4 class="mb-0">Tasks Performance </h4>
                             </div>
