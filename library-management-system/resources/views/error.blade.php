@@ -2,29 +2,20 @@
 <html lang="en">
 
   <head>
-    <!-- Required meta tags -->
+
+<!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
 
 <!-- Favicon icon-->
 <link rel="shortcut icon" type="image/x-icon" href="{{ asset('design') }}/assets/images/favicon/favicon.ico">
 
 <!-- Libs CSS -->
 
-
 <link href="{{ asset('design') }}/assets/libs/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 <link href="{{ asset('design') }}/assets/libs/dropzone/dist/dropzone.css"  rel="stylesheet">
 <link href="{{ asset('design') }}/assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" />
 <link href="{{ asset('design') }}/assets/libs/prismjs/themes/prism-okaidia.css" rel="stylesheet">
-
-
-
-
-
-
-
 
 <!-- Theme CSS -->
 <link rel="stylesheet" href="{{ asset('design') }}/assets/css/theme.min.css">
@@ -67,9 +58,6 @@
 <script src="{{ asset('design') }}/assets/libs/dropzone/dist/min/dropzone.min.js"></script>
 <script src="{{ asset('design') }}/assets/libs/prismjs/plugins/toolbar/prism-toolbar.min.js"></script>
 <script src="{{ asset('design') }}/assets/libs/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
-
-
-
 
 <!-- Theme JS -->
 <script src="{{ asset('design') }}/assets/js/theme.min.js"></script>
