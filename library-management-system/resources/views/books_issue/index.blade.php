@@ -27,8 +27,8 @@
                         <td>{{ $issueBook->user->name }}</td>
                         <td>{{ $issueBook->issued_on }}</td>
                         <td class="d-flex">
-                            <a href="{{ route('issue-books.edit', $issueBook->id) }}"><button type="submit"
-                                    class="btn btn-primary mb-2"> Edit</button></a>
+                            <a href="{{ route('issue-books.edit', $issueBook->id) }}"><button type="submit" class="btn btn-primary mb-2"> Edit</button></a>
+                            <a href="{{ route('issue-books.release', $issueBook->id) }}"><button type="submit" class="btn btn-primary mb-2"> Release</button></a>
 
                             <form action="{{ route('issue-books.destroy', $issueBook->id) }}" method="post"  class="mx-1">
                                 @csrf

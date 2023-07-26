@@ -34,10 +34,10 @@ class IssueBookController extends Controller
      */
     public function store(Request $request)
     {
-
         IssueBook::create($request->all()+[
             'book_id'=>$request->book_id,
             'user_id'=>$request->user_id,
+            'issued_on'=>$request->issued_on,
         ]);
         return redirect(route('issue-books.index'))->with('success','book stored successfully');
     }
@@ -55,7 +55,9 @@ class IssueBookController extends Controller
      */
     public function edit(IssueBook $issueBook)
     {
-        return view('issue-books.edit_issue_books',compact('issueBook'));
+        $books = Book::get();
+        $users = User::get();
+        return view('books_issue.edit_issue_books',compact('issueBook','books','users'));
     }
 
     /**
@@ -75,4 +77,5 @@ class IssueBookController extends Controller
         $issueBook->delete();
         return redirect(route('issue-books.index'))->with('success','book deleted successfully');
     }
+
 }
