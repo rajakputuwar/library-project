@@ -29,8 +29,8 @@
 
                 <div class="mb-3">
                     <label for="exampleInputEmail2" class="form-label">Date Of Issue</label>
-                    <input type="date" class="form-control" name="issue-date" id="exampleInputEmail2">
-                    @error('issue-date')
+                    <input type="date" class="form-control" name="issued_on" id="exampleInputEmail2">
+                    @error('issued_on')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>

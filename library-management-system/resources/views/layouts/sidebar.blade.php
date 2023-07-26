@@ -19,22 +19,33 @@
 
             <li class="nav-item">
                 <a class="nav-link " href="{{ route('categories.index') }}">
+                    <i data-feather="sidebar" class="nav-icon icon-xs me-2">
+                    </i>
                     Categories
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link has-arrow   " href="{{ route('books.index') }}">
+                    <i data-feather="sidebar" class="nav-icon icon-xs me-2">
+                    </i>
                     Books
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <div class="navbar-heading">Books Management</div>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a class="nav-link " href="{{ route('issue-books.index') }}">
                     <i data-feather="sidebar" class="nav-icon icon-xs me-2">
                     </i>
-                    Issue Books
+                    Books Issued
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{ route('returned-books.index') }}">
+                    <i data-feather="sidebar" class="nav-icon icon-xs me-2">
+                    </i>
+                    Books Returned
                 </a>
             </li>
         </ul>
