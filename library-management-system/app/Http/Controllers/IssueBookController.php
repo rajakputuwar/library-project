@@ -12,10 +12,20 @@ class IssueBookController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $issueBooks = IssueBook::get();
-        return view('books_issue.index',compact('issueBooks'));
+        $search = $request->search;
+        $issueBooks = IssueBook::where(function ($query) use ($search) {
+            $query->where('issued_on', 'LIKE', "%$search%");
+        })
+            ->orWhereHas('book', function ($query) use ($search) {
+                $query->where('name', 'like', "%$search%");
+            })
+            ->orWhereHas('user', function ($query) use ($search) {
+                $query->where('name', 'like', "%$search%");
+            })->get();
+
+        return view('books_issue.index', compact('issueBooks', 'search'));
     }
 
     /**
@@ -26,7 +36,7 @@ class IssueBookController extends Controller
         $books = Book::get();
         $users = User::get();
 
-        return view('books_issue.add_issue_books',compact('books','users'));
+        return view('books_issue.add_issue_books', compact('books', 'users'));
     }
 
     /**
@@ -34,12 +44,12 @@ class IssueBookController extends Controller
      */
     public function store(Request $request)
     {
-        IssueBook::create($request->all()+[
-            'book_id'=>$request->book_id,
-            'user_id'=>$request->user_id,
-            'issued_on'=>$request->issued_on,
+        IssueBook::create($request->all() + [
+            'book_id' => $request->book_id,
+            'user_id' => $request->user_id,
+            'issued_on' => $request->issued_on,
         ]);
-        return redirect(route('issue-books.index'))->with('success','book stored successfully');
+        return redirect(route('issue-books.index'))->with('success', 'book stored successfully');
     }
 
     /**
@@ -57,7 +67,7 @@ class IssueBookController extends Controller
     {
         $books = Book::get();
         $users = User::get();
-        return view('books_issue.edit_issue_books',compact('issueBook','books','users'));
+        return view('books_issue.edit_issue_books', compact('issueBook', 'books', 'users'));
     }
 
     /**
@@ -66,7 +76,7 @@ class IssueBookController extends Controller
     public function update(Request $request, IssueBook $issueBook)
     {
         $issueBook->update($request->validated());
-        return redirect(route('issue-books.index'))->with('success','book updated successfully');
+        return redirect(route('issue-books.index'))->with('success', 'book updated successfully');
     }
 
     /**
@@ -75,7 +85,6 @@ class IssueBookController extends Controller
     public function destroy(IssueBook $issueBook)
     {
         $issueBook->delete();
-        return redirect(route('issue-books.index'))->with('success','book deleted successfully');
+        return redirect(route('issue-books.index'))->with('success', 'book deleted successfully');
     }
-
 }

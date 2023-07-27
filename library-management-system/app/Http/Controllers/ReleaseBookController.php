@@ -11,10 +11,21 @@ class ReleaseBookController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $returnedBooks = ReleaseBook::get();
-        return view('books_issue.returned',compact('returnedBooks'));
+        $search = $request->search;
+        $returnedBooks = ReleaseBook::where(function ($query) use ($search) {
+            $query->where('issued_on', 'LIKE', "%$search%")
+                ->orWhere('returned_on', 'LIKE', "%$search%");
+        })
+            ->orWhereHas('book', function ($query) use ($search) {
+                $query->where('name', 'like', "%$search%");
+            })
+            ->orWhereHas('user', function ($query) use ($search) {
+                $query->where('name', 'like', "%$search%");
+            })->get();
+
+        return view('books_issue.returned', compact('returnedBooks'));
     }
 
     public function release($id)
@@ -23,7 +34,6 @@ class ReleaseBookController extends Controller
         $issueBook->returned_on = now();
         $issueBook->replicate()->setTable('release_books')->save();
         $issueBook->delete();
-        return redirect(route('issue-books.index'))->with('success','Book returned successfully');
-
+        return redirect(route('issue-books.index'))->with('success', 'Book returned successfully');
     }
 }
