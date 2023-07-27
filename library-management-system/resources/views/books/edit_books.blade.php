@@ -1,13 +1,26 @@
-@extends('admin.layouts.app')
+@extends('layouts.app')
 
-@section('title', 'Add Category')
+@section('title', 'Edit Books')
 
-@section('content') --}}
+@section('content')
 <div class="col-12">
     <div class="card m-2 p-4">
         <form class="" action="{{ route('books.update',$book->id) }}" method="post">
             @csrf
             @method('put')
+
+            <div class="mb-3">
+                <label class="form-label" for="selectOne">Select Category<span class="text-secondary"></span></label>
+                <select class="form-select" aria-label="Default select example" name="category_id">
+                    <option>Open this select menu</option>
+                    @foreach ($categories as $category)
+                    <option value="{{ $category->id }}" @if($category->id == $book->category_id) selected @endif>{{ $category->category }}</option>
+                    @endforeach
+                </select>
+                @error('category_id')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
 
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Name</label>

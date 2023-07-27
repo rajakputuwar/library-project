@@ -16,11 +16,10 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->isAdmin != 1)
-        return response()->view('error');
+        if (Auth::user()->isAdmin != 1)
+            return response()->view('error');
 
 
-            return $next($request);
-
+        return $next($request);
     }
 }

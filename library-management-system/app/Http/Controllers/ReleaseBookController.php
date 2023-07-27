@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\IssueBook;
 use App\Models\ReleaseBook;
 use Illuminate\Http\Request;
@@ -32,6 +33,9 @@ class ReleaseBookController extends Controller
     {
         $issueBook = IssueBook::find($id);
         $issueBook->returned_on = now();
+        $book = Book::find($issueBook->book_id);
+        $book->available = 1;
+        $book->save();
         $issueBook->replicate()->setTable('release_books')->save();
         $issueBook->delete();
         return redirect(route('issue-books.index'))->with('success', 'Book returned successfully');

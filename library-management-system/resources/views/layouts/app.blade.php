@@ -14,7 +14,7 @@
                 <!-- navbar -->
                 @include('layouts.header')
             </div>
-                @yield('content')
+            @yield('content')
         </div>
     </div>
 

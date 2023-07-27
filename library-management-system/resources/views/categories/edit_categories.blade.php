@@ -5,7 +5,7 @@
 @section('content')
     <div class="col-12">
         <div class="card m-2 p-4">
-            <form class="" action="{{ route('books.update', $category->id) }}" method="post"
+            <form class="" action="{{ route('categories.update', $category->id) }}" method="post"
                 enctype="multipart/form-data">
                 @csrf
                 @method('put')
