@@ -58,7 +58,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(StoreCategoryRequest $request, Category $category)
     {
         $category->update($request->validated());
         return redirect(route('categories.index'))->with('success', 'category updated successfully');

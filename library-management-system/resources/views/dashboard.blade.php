@@ -10,10 +10,10 @@
                 <div>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="mb-2 mb-lg-0">
-                            <h3 class="mb-0  text-white">Projects</h3>
+                            {{-- <h3 class="mb-0  text-white">Projects</h3> --}}
                         </div>
                         <div>
-                            <a href="#" class="btn btn-white">Create New Project</a>
+                            {{-- <a href="#" class="btn btn-white">Create New Project</a> --}}
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                         <!-- project number -->
                         <div>
                             <h1 class="fw-bold">{{ $users->count() }}</h1>
-                            <p class="mb-0"><span class="text-dark me-2">2</span>Completed</p>
+                            {{-- <p class="mb-0"><span class="text-dark me-2">2<sspan>Completed</p> --}}
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                         <!-- project number -->
                         <div>
                             <h1 class="fw-bold">{{ $books->count() }}</h1>
-                            <p class="mb-0"><span class="text-dark me-2">28</span>Completed</p>
+                            {{-- <p class="mb-0"><span class="text-dark me-2">28</span>Completed</p> --}}
                         </div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                         <!-- project number -->
                         <div>
                             <h1 class="fw-bold">{{ $booksIssued->count() }}</h1>
-                            <p class="mb-0"><span class="text-dark me-2">1</span>Completed</p>
+                            {{-- <p class="mb-0"><span class="text-dark me-2">1</span>Completed</p> --}}
                         </div>
                     </div>
                 </div>
@@ -101,15 +101,15 @@
                         </div>
                         <!-- project number -->
                         <div>
-                            <h1 class="fw-bold">76%</h1>
-                            <p class="mb-0"><span class="text-success me-2">5%</span>Completed</p>
+                            <h1 class="fw-bold">{{ $booksReturned->count() }}</h1>
+                            {{-- <p class="mb-0"><span class="text-success me-2">5%</span>Completed</p> --}}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- row  -->
-        <div class="row mt-6">
+        {{-- <div class="row mt-6">
             <div class="col-md-12 col-12">
                 <!-- card  -->
                 <div class="card">
@@ -692,6 +692,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 @endsection

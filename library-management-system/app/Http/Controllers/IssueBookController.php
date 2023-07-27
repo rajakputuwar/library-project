@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreBookIssueRequest;
 use App\Models\Book;
 use App\Models\IssueBook;
 use App\Models\User;
@@ -49,6 +50,9 @@ class IssueBookController extends Controller
             'user_id' => $request->user_id,
             'issued_on' => $request->issued_on,
         ]);
+        $book = Book::find($request->book_id);
+        $book->available = 0;
+        $book->save();
         return redirect(route('issue-books.index'))->with('success', 'book stored successfully');
     }
 
@@ -75,7 +79,10 @@ class IssueBookController extends Controller
      */
     public function update(Request $request, IssueBook $issueBook)
     {
-        $issueBook->update($request->validated());
+        $issueBook->user_id = $request->user_id;
+        $issueBook->book_id = $request->book_id;
+        $issueBook->save();
+        $issueBook->update($request->all());
         return redirect(route('issue-books.index'))->with('success', 'book updated successfully');
     }
 

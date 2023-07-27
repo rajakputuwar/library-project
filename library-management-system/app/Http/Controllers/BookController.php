@@ -59,15 +59,17 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        return view('books.edit_books',compact('books'));
+        $categories = Category::get();
+        return view('books.edit_books',compact('book','categories'));
 
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Book $book)
+    public function update(StoreBookRequest $request, Book $book)
     {
+        $book->category_id = $request->category_id;
         $book->update($request->validated());
         return redirect(route('books.index'))->with('success','book updated successfully');
     }
