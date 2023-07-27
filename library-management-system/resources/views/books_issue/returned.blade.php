@@ -12,6 +12,7 @@
                     <th scope="col">Book</th>
                     <th scope="col">Issued To</th>
                     <th scope="col">Issued On</th>
+                    <th scope="col">Returned On</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,6 +22,7 @@
                         <td>{{ $returnedBook->book->name }}</td>
                         <td>{{ $returnedBook->user->name }}</td>
                         <td>{{ $returnedBook->issued_on }}</td>
+                        <td>{{ $returnedBook->returned_on }}</td>
 
                     </tr>
                 @endforeach

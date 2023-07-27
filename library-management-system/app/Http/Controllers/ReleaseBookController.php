@@ -20,6 +20,7 @@ class ReleaseBookController extends Controller
     public function release($id)
     {
         $issueBook = IssueBook::find($id);
+        $issueBook->returned_on = now();
         $issueBook->replicate()->setTable('release_books')->save();
         $issueBook->delete();
         return redirect(route('issue-books.index'))->with('success','Book returned successfully');
