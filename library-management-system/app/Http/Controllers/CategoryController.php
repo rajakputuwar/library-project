@@ -12,10 +12,15 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::get();
-        return view('categories.index',compact('categories'));
+        $search = $request['search'] ?? "";
+        if ($search != "")
+            $categories = Category::where("category", "LIKE", "%$search%")->get();
+        else
+            $categories = Category::get();
+
+        return view('categories.index', compact('categories','search'));
     }
 
     /**
@@ -32,8 +37,7 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         Category::create($request->validated());
-        return redirect(route('categories.index'))->with('success','category stored successfully');
-
+        return redirect(route('categories.index'))->with('success', 'category stored successfully');
     }
 
     /**
@@ -41,7 +45,6 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-
     }
 
     /**
@@ -49,8 +52,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('categories.edit_categories',compact('category'));
-
+        return view('categories.edit_categories', compact('category'));
     }
 
     /**
@@ -59,7 +61,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $category->update($request->validated());
-        return redirect(route('categories.index'))->with('success','category updated successfully');
+        return redirect(route('categories.index'))->with('success', 'category updated successfully');
     }
 
     /**
@@ -68,6 +70,6 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect(route('categories.index'))->with('success','Data deleted successfully');
+        return redirect(route('categories.index'))->with('success', 'Data deleted successfully');
     }
 }

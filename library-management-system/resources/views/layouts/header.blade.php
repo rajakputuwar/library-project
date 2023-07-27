@@ -3,7 +3,8 @@
     <div class="ms-lg-3 d-none d-md-none d-lg-block">
         <!-- Form -->
         <form class="d-flex align-items-center">
-            <input type="search" class="form-control" placeholder="Search" />
+            <input type="search" name="search" class="form-control" placeholder="Search" value= "{{ $search?? "" }}"/>
+            <button type="submit" class="btn btn-primary mx-2">Search</button>
         </form>
     </div>
     <!--Navbar nav -->

@@ -12,11 +12,18 @@ class BookController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $books=Book::get();
-        return view('books.index',compact('books'));
-    }
+        public function index(Request $request)
+        {
+            $search = $request['search'] ?? "";
+            if ($search != "")
+                $books = Book::where("name", "LIKE", "%$search%")->get();
+            else
+                $books = Book::get();
+
+            return view('books.index', compact('books','search'));
+        }
+        // $books=Book::get();
+        // return view('books.index',compact('books'));
 
     /**
      * Show the form for creating a new resource.

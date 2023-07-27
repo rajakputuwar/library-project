@@ -2,7 +2,10 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="d-flex">
     <a href="{{ route('issue-books.create') }}"><button type="submit" class="btn btn-primary m-2">Issue New Book</button></a>
+</div>
+
     <div class="card m-2 p-4">
         @if (Session::has('success'))
             <div class="alert alert-success" role="alert">

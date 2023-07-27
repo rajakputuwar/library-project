@@ -31,7 +31,6 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::resource('categories', CategoryController::class);
     Route::resource('books', BookController::class);
     Route::resource('issue-books',IssueBookController::class);
-    // Route::get('/issue-books/{issue-book}/release',[IssueBookController::class,'release'])->name('issue-books.release');
     Route::get('/returned-books',[ReleaseBookController::class,'index'])->name('returned-books.index');
     Route::get('/books-issue/release/{id}',[ReleaseBookController::class,'release'])->name('issue-books.release');
 });
