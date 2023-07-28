@@ -1,10 +1,11 @@
-
 @extends('layouts.app')
 
+@section('title', 'Books returned')
 @section('content')
 
     <div class="card m-2 p-4">
-        <caption class="fs-4"> Report on the returned books </caption><hr>
+        <caption class="fs-4"> Report on the returned books </caption>
+        <hr>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -23,7 +24,6 @@
                         <td>{{ $returnedBook->user->name }}</td>
                         <td>{{ $returnedBook->issued_on }}</td>
                         <td>{{ $returnedBook->returned_on }}</td>
-
                     </tr>
                 @endforeach
             </tbody>

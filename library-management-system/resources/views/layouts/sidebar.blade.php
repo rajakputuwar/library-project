@@ -1,9 +1,10 @@
 <nav class="navbar-vertical navbar">
     <div class="nav-scroller">
         <!-- Brand logo -->
-        <a class="navbar-brand" href="{{ asset('') }}design/index.html">
+        {{-- <a class="navbar-brand" href="{{ asset('') }}design/index.html">
             <img src="{{ asset('') }}design/assets/images/brand/logo/logo.svg" alt="" />
-        </a>
+        </a> --}}
+        <p class="fs-3 m-2 text-center color-white">LMS</p><hr>
         <!-- Navbar nav -->
         <ul class="navbar-nav flex-column" id="sideNavbar">
             <li class="nav-item">

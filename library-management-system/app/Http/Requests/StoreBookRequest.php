@@ -25,7 +25,7 @@ class StoreBookRequest extends FormRequest
             'category_id'=>'required',
             'name'=>'required',
             'author'=>'required',
-            'released_date'=>'required|date',
+            'released_date'=>'required|date|before:tomorrow',
             'price'=>'required|integer'
         ];
     }

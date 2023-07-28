@@ -36,9 +36,10 @@
                     <!-- Card body -->
                     <div class="card-body p-6">
                         <div class="mb-4">
-                            <a href="{{ asset('design') }}/index.html"><img
+                            {{-- <a href="{{ asset('design') }}/index.html"><img
                                     src="{{ asset('') }}design/assets/images/brand/logo/logo-primary.svg"
-                                    class="mb-2" alt=""></a>
+                                    class="mb-2" alt=""></a> --}}
+                                    <h3><strong>Library Management System</strong></h3>
                             <p class="mb-6">Please enter your user information.</p>
                         </div>
                         <!-- Form -->
@@ -66,7 +67,7 @@
                             <!-- Password -->
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" id="password" class="form-control" name="password" required="">
+                                <input type="password" id="password" class="form-control" name="password" placeholder="Enter password here">
                                 @error('password')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -75,7 +76,7 @@
                             <div class="mb-3">
                                 <label for="confirm-password" class="form-label">Confirm
                                     Password</label>
-                                <input type="password" id="confirm-password" class="form-control" name="password_confirmation"  required="">
+                                <input type="password" id="confirm-password" class="form-control" name="password_confirmation" placeholder="Re-enter password here" required="">
                                 @error('password')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -84,17 +85,17 @@
                                 <!-- Button -->
                                 <div class="d-grid">
                                     <button type="submit" class="btn btn-primary">
-                                        Create Account
+                                        Register
                                     </button>
                                 </div>
 
-                                <div class="d-md-flex justify-content-between mt-4">
+                                <div class="d-md-flex justify-content-center mt-4">
                                     <div class="mb-2 mb-md-0">
                                         <a href="{{ route('login') }}" class="fs-5">Already member? Login </a>
                                     </div>
-                                    <div>
+                                    {{-- <div>
                                         <a href="forget-password.html" class="text-inherit fs-5">Forgot your password?</a>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </form>

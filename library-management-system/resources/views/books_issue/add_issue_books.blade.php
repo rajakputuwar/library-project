@@ -16,6 +16,9 @@
                             <option value="{{ $book->id }}">{{ $book->name }}</option>
                         @endforeach
                     </select>
+                    @error('book_id')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="selectOne">Select User<span class="text-secondary"></span></label>
@@ -25,6 +28,9 @@
                             <option value="{{ $user->id }}">{{ $user->name }}</option>
                         @endforeach
                     </select>
+                    @error('user_id')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
