@@ -35,9 +35,10 @@
                     <!-- Card body -->
                     <div class="card-body p-6">
                         <div class="mb-4">
-                            <a href="{{ asset('') }}design/index.html"><img
+                            {{-- <a href="{{ asset('') }}design/index.html"><img
                                     src="{{ asset('') }}design/assets/images/brand/logo/logo-primary.svg"
-                                    class="mb-2" alt=""></a>
+                                    class="mb-2" alt=""></a> --}}
+                                    <h3><strong>Library Management System </strong></h3>
                             <p class="mb-6">Please enter your user information.</p>
                         </div>
                         <!-- Form -->
@@ -56,7 +57,7 @@
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" id="password" class="form-control" name="password"
-                                    placeholder="**************" required="">
+                                    placeholder="Password here" required="">
                                 @error('password')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror

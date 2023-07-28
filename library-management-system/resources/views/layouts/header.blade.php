@@ -9,7 +9,7 @@
     </div>
     <!--Navbar nav -->
     <ul class="navbar-nav navbar-right-wrap ms-auto d-flex nav-top-wrap">
-        <li class="dropdown stopevent">
+        {{-- <li class="dropdown stopevent">
             <a class="btn btn-light btn-icon rounded-circle indicator indicator-primary text-muted"
                 href="#" role="button" id="dropdownNotification" data-bs-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -96,7 +96,7 @@
                     </div>
                 </div>
             </div>
-        </li>
+        </li> --}}
         <!-- List -->
         <li class="dropdown ms-2">
             <a class="rounded-circle" href="#" role="button" id="dropdownUser"
@@ -113,7 +113,6 @@
 
                     <div class="lh-1 ">
                         <h5 class="mb-1">{{ Auth::user()->name }}</h5>
-                        <a href="#" class="text-inherit fs-6">View my profile</a>
                     </div>
                     <div class=" dropdown-divider mt-3 mb-2"></div>
                 </div>

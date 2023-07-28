@@ -45,7 +45,12 @@ class IssueBookController extends Controller
      */
     public function store(Request $request)
     {
-        IssueBook::create($request->all() + [
+        $validated = $request->validate([
+            'book_id' => 'required|unique:issue_books',
+            'user_id' => 'required',
+            'issued_on'=> 'required','date','before:tomorrow',
+        ]);
+        IssueBook::create([
             'book_id' => $request->book_id,
             'user_id' => $request->user_id,
             'issued_on' => $request->issued_on,
@@ -53,7 +58,7 @@ class IssueBookController extends Controller
         $book = Book::find($request->book_id);
         $book->available = 0;
         $book->save();
-        return redirect(route('issue-books.index'))->with('success', 'book stored successfully');
+        return redirect(route('issue-books.index'))->with('success', 'book issued successfully');
     }
 
     /**
@@ -79,11 +84,16 @@ class IssueBookController extends Controller
      */
     public function update(Request $request, IssueBook $issueBook)
     {
+        $validated = $request->validate([
+            'book_id' => ['required','unique:issue_books,book_id,'.$issueBook->id],
+            'user_id' => 'required',
+            'issued_on'=> 'required','date','before:tomorrow',
+        ]);
         $issueBook->user_id = $request->user_id;
         $issueBook->book_id = $request->book_id;
         $issueBook->save();
         $issueBook->update($request->all());
-        return redirect(route('issue-books.index'))->with('success', 'book updated successfully');
+        return redirect(route('issue-books.index'))->with('success', 'issued book updated successfully');
     }
 
     /**
@@ -92,6 +102,6 @@ class IssueBookController extends Controller
     public function destroy(IssueBook $issueBook)
     {
         $issueBook->delete();
-        return redirect(route('issue-books.index'))->with('success', 'book deleted successfully');
+        return redirect(route('issue-books.index'))->with('success', 'issued book deleted successfully');
     }
 }

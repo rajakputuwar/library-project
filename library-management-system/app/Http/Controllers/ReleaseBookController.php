@@ -38,6 +38,6 @@ class ReleaseBookController extends Controller
         $book->save();
         $issueBook->replicate()->setTable('release_books')->save();
         $issueBook->delete();
-        return redirect(route('issue-books.index'))->with('success', 'Book returned successfully');
+        return redirect(route('issue-books.index'))->with('success', 'issued book returned successfully');
     }
 }
