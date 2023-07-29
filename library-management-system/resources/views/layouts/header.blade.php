@@ -109,16 +109,13 @@
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser">
                 <div class="px-4 pb-0 pt-2">
-
-
                     <div class="lh-1 ">
-                        <h5 class="mb-1">{{ Auth::user()->name }}</h5>
+                        <a href=""><h5 class="mb-1 text-center text-primary">{{ Auth::user()->name }}</h5></a>
                     </div>
                     <div class=" dropdown-divider mt-3 mb-2"></div>
                 </div>
 
                 <ul class="list-unstyled">
-
                     <li>
                         <a class="dropdown-item" href="{{ route('logout') }}">
                             <i class="me-2 icon-xxs dropdown-item-icon" data-feather="power"></i>Sign
@@ -126,7 +123,6 @@
                         </a>
                     </li>
                 </ul>
-
             </div>
         </li>
     </ul>

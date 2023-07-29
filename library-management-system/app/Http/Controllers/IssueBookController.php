@@ -48,7 +48,7 @@ class IssueBookController extends Controller
         $validated = $request->validate([
             'book_id' => 'required|unique:issue_books',
             'user_id' => 'required',
-            'issued_on'=> 'required','date','before:tomorrow',
+            'issued_on'=> ['required','date','before:tomorrow'],
         ]);
         IssueBook::create([
             'book_id' => $request->book_id,
@@ -87,7 +87,7 @@ class IssueBookController extends Controller
         $validated = $request->validate([
             'book_id' => ['required','unique:issue_books,book_id,'.$issueBook->id],
             'user_id' => 'required',
-            'issued_on'=> 'required','date','before:tomorrow',
+            'issued_on'=> ['required','date','before:tomorrow'],
         ]);
         $issueBook->user_id = $request->user_id;
         $issueBook->book_id = $request->book_id;

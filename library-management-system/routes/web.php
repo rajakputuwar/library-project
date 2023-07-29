@@ -24,7 +24,8 @@ use App\Http\Controllers\ReleaseBookController;
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/',[HomeController::class,'index'])->name('home');
+    Route::get('/',[HomeController::class,'index'])->name('userDashboard');
+    Route::get('/store',[HomeController::class,'store'])->name('store');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
