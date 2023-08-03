@@ -37,6 +37,13 @@
                 @enderror
             </div>
             <div class="mb-3">
+                <label for="exampleInputEmail2" class="form-label">No.of copies</label>
+                <input type="number" class="form-control" name="total" value="{{ $book->total }}" id="exampleInputEmail2">
+                @error('total')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-3">
                 <label for="exampleInputEmail2" class="form-label">Released_date</label>
                 <input type="text" class="form-control" name="released_date" id="exampleInputEmail2" value="{{ $book->released_date }}">
                 @error('released_date')

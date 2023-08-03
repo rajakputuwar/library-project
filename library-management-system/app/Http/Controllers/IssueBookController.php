@@ -34,7 +34,7 @@ class IssueBookController extends Controller
      */
     public function create()
     {
-        $books = Book::get();
+        $books = Book::where('available','>',0)->get();
         $users = User::get();
 
         return view('books_issue.add_issue_books', compact('books', 'users'));
@@ -46,7 +46,7 @@ class IssueBookController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'book_id' => 'required|unique:issue_books',
+            'book_id' => 'required',
             'user_id' => 'required',
             'issued_on'=> ['required','date','before:tomorrow'],
         ]);
@@ -56,7 +56,7 @@ class IssueBookController extends Controller
             'issued_on' => $request->issued_on,
         ]);
         $book = Book::find($request->book_id);
-        $book->available = 0;
+        $book->available = $book->total - $book->issuebook->count();
         $book->save();
         return redirect(route('issue-books.index'))->with('success', 'book issued successfully');
     }
@@ -92,6 +92,9 @@ class IssueBookController extends Controller
         $issueBook->user_id = $request->user_id;
         $issueBook->book_id = $request->book_id;
         $issueBook->save();
+        $book = Book::find($request->book_id);
+        $book->available = $book->total - $book->issuebook->count();
+        $book->save();
         $issueBook->update($request->all());
         return redirect(route('issue-books.index'))->with('success', 'issued book updated successfully');
     }

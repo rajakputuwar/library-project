@@ -34,9 +34,9 @@ class ReleaseBookController extends Controller
         $issueBook = IssueBook::find($id);
         $issueBook->returned_on = now();
         $book = Book::find($issueBook->book_id);
-        $book->available = 1;
-        $book->save();
+        $book->available += 1;
         $issueBook->replicate()->setTable('release_books')->save();
+        $book->save();
         $issueBook->delete();
         return redirect(route('issue-books.index'))->with('success', 'issued book returned successfully');
     }

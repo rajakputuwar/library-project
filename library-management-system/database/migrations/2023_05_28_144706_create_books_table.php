@@ -16,7 +16,8 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('author');
-            $table->boolean('available')->default(true);
+            $table->integer('total');
+            $table->integer('available')->nullable();
             $table->date('released_date');
             $table->integer('price');
             $table->timestamps();

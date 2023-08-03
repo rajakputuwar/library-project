@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <a href="{{ route('books.create') }}"><button type="submit" class="btn btn-primary m-2">Add Books</button></a>
+    <a href="{{ route('books.create') }}">
+        <button type="submit" class="btn btn-primary m-2">Add Books</button></a>
     <div class="card m-2 p-4">
         @if (Session::has('success'))
             <div class="alert alert-success" role="alert">
@@ -15,6 +16,8 @@
                     <th scope="col">Name</th>
                     <th scope="col">author</th>
                     <th scope="col">Released_date</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Availability</th>
                     <th scope="col">Category</th>
                     <th scope="col">Price</th>
                     <th scope="col">Action</th>
@@ -27,6 +30,14 @@
                         <td>{{ $book->name }}</td>
                         <td>{{ $book->author }}</td>
                         <td>{{ $book->released_date }}</td>
+                        <td>{{ $book->total }}</td>
+                        <td nowrap="nowrap" class=" @if ($book->total - $book->issuebook->count() > 0) text-success @else text-danger @endif">
+                            @if ($book->total - $book->issuebook->count() > 0)
+                                Available [ {{ $book->total - $book->issuebook->count() }} ]
+                            @else
+                                Not Available
+                            @endif
+                        </td>
                         <td>{{ $book->category->category }}</td>
                         <td>{{ $book->price }}</td>
                         <td class="d-flex">
