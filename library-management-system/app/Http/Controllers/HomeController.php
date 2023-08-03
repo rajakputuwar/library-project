@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,7 +26,15 @@ class HomeController extends Controller
 
     public function store()
     {
+        $categories = Category::get();
         $books = Book::get();
-        return view('store', compact('books'));
+        return view('store', compact('books','categories'));
+    }
+
+    public function show($id)
+    {
+        $categories = Category::find($id);
+
+        return view('storeShow',compact('categories'));
     }
 }

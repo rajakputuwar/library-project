@@ -41,7 +41,7 @@ class BookController extends Controller
     public function store(StoreBookRequest $request)
     {
         $category = Category::find($request->category_id);
-        $category->books()->create($request->validated()+['available'=>false]);
+        $category->books()->create($request->validated() + ['available' => $request->total]);
 
         return redirect(route('books.index'))->with('success','book stored successfully');
     }
@@ -70,7 +70,8 @@ class BookController extends Controller
     public function update(StoreBookRequest $request, Book $book)
     {
         $book->category_id = $request->category_id;
-        $book->update($request->validated());
+
+        $book->update($request->validated() + ['available' => $request->total - $book->issuebook->count()]);
         return redirect(route('books.index'))->with('success','book updated successfully');
     }
 

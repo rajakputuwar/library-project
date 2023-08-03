@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IssueBookController;
 use App\Http\Controllers\ReleaseBookController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/',[HomeController::class,'index'])->name('userDashboard');
     Route::get('/store',[HomeController::class,'store'])->name('store');
+    Route::get('/store/{id}',[HomeController::class,'show'])->name('store.show');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
@@ -34,6 +36,8 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::resource('categories', CategoryController::class);
     Route::resource('books', BookController::class);
     Route::resource('issue-books',IssueBookController::class);
+    Route::resource('users',UserController::class);
+    Route::get('/users/{id}/profile',[UserController::class,'profile'])->name('users.profile');
     Route::get('/returned-books',[ReleaseBookController::class,'index'])->name('returned-books.index');
     Route::get('/books-issue/release/{id}',[ReleaseBookController::class,'release'])->name('issue-books.release');
 });

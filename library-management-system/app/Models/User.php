@@ -19,8 +19,12 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'college_id',
+        'image',
         'email',
         'password',
+        'phone',
+        'address'
     ];
 
     /**
@@ -42,4 +46,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function issuebook()
+    {
+        return $this->hasMany(IssueBook::class);
+    }
 }

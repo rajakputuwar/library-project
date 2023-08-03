@@ -22,11 +22,21 @@ class StoreBookRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'category_id'=>'required',
-            'name'=>'required',
-            'author'=>'required',
-            'released_date'=>'required|date|before:tomorrow',
-            'price'=>'required|integer'
+            'category_id' => 'required',
+            'name' => 'required',
+            'author' => 'required',
+            'total' => 'required|integer|min:1',
+            'released_date' => 'required|date|before:tomorrow',
+            'price' => 'required|integer'
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'available.min' => 'No. of copies must be greater than 0',
+            'released_date.before' => 'The released_date field can\'t be of future'
+
         ];
     }
 }
