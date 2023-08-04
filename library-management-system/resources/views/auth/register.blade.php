@@ -34,16 +34,13 @@
                 <!-- Card -->
                 <div class="card smooth-shadow-md">
                     <!-- Card body -->
-                    <div class="card-body p-6">
-                        <div class="mb-4">
-                            {{-- <a href="{{ asset('design') }}/index.html"><img
-                                    src="{{ asset('') }}design/assets/images/brand/logo/logo-primary.svg"
-                                    class="mb-2" alt=""></a> --}}
-                                    <h3><strong>Library Management System</strong></h3>
-                            <p class="mb-6">Please enter your user information.</p>
+                    <div class="card-body p-5">
+                        <div class="mb-3">
+                            <h3><strong>Library Management System</strong></h3>
+                            <p class="mb-4">Please enter your user information.</p>
                         </div>
                         <!-- Form -->
-                        <form action="{{ route('register') }}" method="post">
+                        <form action="{{ route('register') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <!-- Username -->
                             <div class="mb-3">
@@ -51,6 +48,15 @@
                                 <input type="text" id="username" class="form-control" name="name"
                                     placeholder="User Name" required="">
                                 @error('name')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="college_id" class="form-label">Student Id</label>
+                                <input type="text" id="college_id" class="form-control" name="college_id"
+                                    placeholder="Enter student id " required="">
+                                @error('college_id')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -67,7 +73,8 @@
                             <!-- Password -->
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" id="password" class="form-control" name="password" placeholder="Enter password here">
+                                <input type="password" id="password" class="form-control" name="password"
+                                    placeholder="Enter password here">
                                 @error('password')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -76,8 +83,16 @@
                             <div class="mb-3">
                                 <label for="confirm-password" class="form-label">Confirm
                                     Password</label>
-                                <input type="password" id="confirm-password" class="form-control" name="password_confirmation" placeholder="Re-enter password here" required="">
+                                <input type="password" id="confirm-password" class="form-control"
+                                    name="password_confirmation" placeholder="Re-enter password here" required="">
                                 @error('password')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Identification:</label>
+                                <input type="file" id="image" class="form-control" name="image" required="">
+                                @error('image')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -89,13 +104,10 @@
                                     </button>
                                 </div>
 
-                                <div class="d-md-flex justify-content-center mt-4">
+                                <div class="d-md-flex justify-content-center mt-2">
                                     <div class="mb-2 mb-md-0">
                                         <a href="{{ route('login') }}" class="fs-5">Already member? Login </a>
                                     </div>
-                                    {{-- <div>
-                                        <a href="forget-password.html" class="text-inherit fs-5">Forgot your password?</a>
-                                    </div> --}}
                                 </div>
                             </div>
                         </form>

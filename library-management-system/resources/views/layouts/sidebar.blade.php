@@ -10,6 +10,18 @@
                 </a>
 
             </li>
+
+            <li class="nav-item">
+                <div class="navbar-heading">Users Management</div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link @if(Route::is('users.*')) active @endif " href="{{ route('users.index') }}">
+                    <i data-feather="sidebar" class="nav-icon icon-xs me-2">
+                    </i>
+                    Users
+                </a>
+            </li>
             <!-- Nav item -->
             <li class="nav-item">
                 <div class="navbar-heading">Books Management</div>
