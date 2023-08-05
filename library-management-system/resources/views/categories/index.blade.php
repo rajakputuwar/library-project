@@ -14,6 +14,7 @@
                     <th scope="col">S.No</th>
                     <th scope="col">Category</th>
                     <th scope="col">Shelf Name</th>
+                    <th scope="col">No. of books</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -23,6 +24,7 @@
                         <td scope="row">{{ $loop->iteration }}</td>
                         <td>{{ $category->category }}</td>
                         <td>{{ $category->shelf_name }}</td>
+                        <td>{{ $category->books->count() }}</td>
                         <td class="d-flex">
                             <a href="{{ route('categories.edit', $category->id) }}"><button type="submit"
                                     class="btn btn-primary mb-2"> Edit</button></a>
