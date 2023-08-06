@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class IssueBook extends Model
+class Booking extends Model
 {
     use HasFactory;
 
-    protected $fillable=['user_id','book_id','issued_on'];
+    protected $fillable=['user_id','book_id','booked_on'];
 
     public function book()
     {
@@ -20,5 +20,4 @@ class IssueBook extends Model
     {
         return $this->belongsTo(User::class);
     }
-
 }

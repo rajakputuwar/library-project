@@ -277,6 +277,8 @@
         {
             document.getElementById('btn').style.display= 'none';
             window.print();
+            document.getElementById('btn').style.display= 'block';
+
         }
     </script>
 </body>

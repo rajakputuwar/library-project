@@ -1,35 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
-    <a href="{{ route('categories.create') }}"><button type="submit" class="btn btn-primary m-2">Add Category</button></a>
     <div class="card m-2 p-4">
         @if (Session::has('success'))
             <div class="alert alert-success" role="alert">
                 {{ session('success') }}
             </div>
         @endif
+        @if (Session::has('failure'))
+        <div class="alert alert-danger">
+            {{ session()->get('failure') }}
+        </div>
+    @endif
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">S.No</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Shelf Name</th>
-                    <th scope="col">No. of books</th>
+                    <th scope="col">Book</th>
+                    <th scope="col">Issued To</th>
+                    <th scope="col">Booked On</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($categories as $category)
+                @foreach ($bookings as $booking)
                     <tr>
-                        <td scope="row">{{ $loop->iteration }}</td>
-                        <td>{{ $category->category }}</td>
-                        <td>{{ $category->shelf_name }}</td>
-                        <td>{{ $category->books->count() }}</td>
+                        <th scope="row">{{ $loop->iteration }}</th>
+                        <td>{{ $booking->book->name }}</td>
+                        <td>{{ $booking->user->name }}</td>
+                        <td>{{ $booking->booked_on }}</td>
                         <td class="d-flex">
-                            <a href="{{ route('categories.edit', $category->id) }}"><button type="submit"
-                                    class="btn btn-primary mb-2"> Edit</button></a>
-
-                            <form action="{{ route('categories.destroy', $category->id) }}" method="post" class="mx-1">
+                            <a href="{{ route('bookings.issue', $booking->id) }}"><button type="submit"
+                                    class="btn btn-primary mb-2">Issue</button></a>
+                            <form action="{{ route('bookings.destroy', $booking->id) }}" method="post" class="mx-1">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger">delete</button>
