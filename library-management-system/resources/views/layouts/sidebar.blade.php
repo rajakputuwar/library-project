@@ -41,6 +41,13 @@
                     Books
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link @if(Route::is('bookings.*')) active @endif" href="{{ route('bookings.index') }}">
+                    <i data-feather="sidebar" class="nav-icon icon-xs me-2">
+                    </i>
+                    Bookings
+                </a>
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link @if(Route::is('issue-books.*')) active @endif" href="{{ route('issue-books.index') }}">

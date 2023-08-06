@@ -13,6 +13,11 @@
                 {{ session('success') }}
             </div>
         @endif
+        @if (Session::has('failure'))
+            <div class="alert alert-danger">
+                {{ session()->get('failure') }}
+            </div>
+        @endif
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -31,8 +36,8 @@
                         <td>{{ $issueBook->user->name }}</td>
                         <td>{{ $issueBook->issued_on }}</td>
                         <td class="d-flex">
-                            <a href="{{ route('issue-books.edit', $issueBook->id) }}"><button type="submit"
-                                    class="btn btn-primary mb-2"> Edit</button></a>
+                            {{-- <a href="{{ route('issue-books.edit', $issueBook->id) }}"><button type="submit"
+                                    class="btn btn-primary mb-2"> Edit</button></a> --}}
                             <a href="{{ route('issue-books.release', $issueBook->id) }}"><button type="submit"
                                     class="btn btn-success mx-2"> Release</button>
                             </a>
