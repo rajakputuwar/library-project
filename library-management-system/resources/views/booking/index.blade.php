@@ -9,7 +9,7 @@
         @endif
         @if (Session::has('failure'))
         <div class="alert alert-danger">
-            {{ session()->get('failure') }}
+            {{ session('failure') }}
         </div>
     @endif
         <table class="table table-striped">
@@ -17,7 +17,7 @@
                 <tr>
                     <th scope="col">S.No</th>
                     <th scope="col">Book</th>
-                    <th scope="col">Issued To</th>
+                    <th scope="col">Booked By</th>
                     <th scope="col">Booked On</th>
                     <th scope="col">Action</th>
                 </tr>

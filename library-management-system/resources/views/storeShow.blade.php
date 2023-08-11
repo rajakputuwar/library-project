@@ -8,6 +8,11 @@
                 {{ session('success') }}
             </div>
         @endif
+        @if (Session::has('failure'))
+            <div class="alert alert-danger" role="alert">
+                {{ session('failure') }}
+            </div>
+        @endif
         <a href="{{ route('store') }}"><button type="submit" class="btn btn-primary mt-2">Back</button></a>
         <div class="row ">
             @foreach ($categories->books as $book)

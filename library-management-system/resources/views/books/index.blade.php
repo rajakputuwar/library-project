@@ -31,9 +31,9 @@
                         <td>{{ $book->author }}</td>
                         <td>{{ $book->released_date }}</td>
                         <td>{{ $book->total }}</td>
-                        <td nowrap="nowrap" class=" @if ($book->total - $book->issuebook->count() > 0) text-success @else text-danger @endif">
-                            @if ($book->total - $book->issuebook->count() > 0)
-                                Available [ {{ $book->total - $book->issuebook->count() }} ]
+                        <td nowrap="nowrap" class=" @if ($book->available > 0) text-success @else text-danger @endif">
+                            @if ($book->available > 0)
+                                Available [ {{ $book->available }} ]
                             @else
                                 Not Available
                             @endif

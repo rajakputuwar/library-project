@@ -23,7 +23,7 @@ class BookingController extends Controller
             ->where('book_id', '=', $request->book_id)
             ->first()
         )
-            return redirect()->back()->with('success', 'You have already booked this book');
+            return redirect()->back()->with('failure', 'You have already booked this book');
         else {
             Booking::updateOrCreate([
                 'user_id' => $request->user_id,
