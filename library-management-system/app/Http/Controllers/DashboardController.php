@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Booking;
 use App\Models\IssueBook;
 use App\Models\ReleaseBook;
 use App\Models\User;
@@ -14,9 +15,10 @@ class DashboardController extends Controller
     {
         $books = Book::get();
         $users = User::get();
+        $bookings = Booking::get();
         $booksIssued = IssueBook::get();
         $booksReturned = ReleaseBook::get();
 
-        return view('dashboard',compact('books','users','booksIssued','booksReturned'));
+        return view('dashboard',compact('books','users','bookings','booksIssued','booksReturned'));
     }
 }

@@ -25,6 +25,7 @@
                     <th scope="col">Book</th>
                     <th scope="col">Issued To</th>
                     <th scope="col">Issued On</th>
+                    <th scope="col">Fine</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -35,6 +36,7 @@
                         <td>{{ $issueBook->book->name }}</td>
                         <td>{{ $issueBook->user->name }}</td>
                         <td>{{ $issueBook->issued_on }}</td>
+                        <td>{{ $issueBook->fine }}</td>
                         <td class="d-flex">
                             {{-- <a href="{{ route('issue-books.edit', $issueBook->id) }}"><button type="submit"
                                     class="btn btn-primary mb-2"> Edit</button></a> --}}
