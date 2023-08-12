@@ -32,16 +32,20 @@ class ReleaseBookController extends Controller
     public function release($id)
     {
         $issueBook = IssueBook::find($id);
-        if ($issueBook->fine) {
-            return redirect(route('issue-books.index'))->with('failure', 'Fine is due ');
-        } else {
-            $issueBook->returned_on = now();
-            $book = Book::find($issueBook->book_id);
-            $book->available += 1;
-            $issueBook->replicate()->setTable('release_books')->save();
-            $book->save();
-            $issueBook->delete();
-            return redirect(route('issue-books.index'))->with('success', 'issued book returned successfully');
-        }
+
+        ReleaseBook::create([
+            'book_id' => $issueBook->book_id,
+            'user_id' => $issueBook->user_id,
+            'issued_on' => $issueBook->issued_on,
+            'fine' => $issueBook->fine,
+            'returned_on' => now(),
+            'released_by' => auth()->user()->name,
+        ]);
+        $book = Book::find($issueBook->book_id);
+        $book->available += 1;
+        $book->save();
+        $issueBook->delete();
+
+        return redirect(route('issue-books.index'))->with('success', 'issued book returned successfully');
     }
 }

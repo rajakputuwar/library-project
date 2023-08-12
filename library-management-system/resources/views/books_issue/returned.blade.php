@@ -14,6 +14,8 @@
                     <th scope="col">Issued To</th>
                     <th scope="col">Issued On</th>
                     <th scope="col">Returned On</th>
+                    <th scope="col">Fine</th>
+                    <th scope="col">Released By</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,6 +26,8 @@
                         <td>{{ $returnedBook->user->name }}</td>
                         <td>{{ $returnedBook->issued_on }}</td>
                         <td>{{ $returnedBook->returned_on }}</td>
+                        <td>{{ $returnedBook->fine }}</td>
+                        <td>{{ $returnedBook->released_by }}</td>
                     </tr>
                 @endforeach
             </tbody>
