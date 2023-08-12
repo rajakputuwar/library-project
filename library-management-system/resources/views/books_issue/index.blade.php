@@ -40,11 +40,42 @@
                         <td class="d-flex">
                             {{-- <a href="{{ route('issue-books.edit', $issueBook->id) }}"><button type="submit"
                                     class="btn btn-primary mb-2"> Edit</button></a> --}}
-                            <a href="{{ route('issue-books.release', $issueBook->id) }}"><button type="submit"
-                                    class="btn btn-success mx-2"> Release</button>
-                            </a>
+                            <!-- Button trigger modal -->
+                            @if($issueBook->fine)
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                data-bs-target="#exampleModalCenter">
+                                Release
+                            </button>
+                            @else
+                            <a href="{{ route('issue-books.release',$issueBook->id) }}"><button type="submit`" class="btn btn-success">Release</button></a>
+                            @endif
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Fine was accepted by {{ auth()->user()->name }}
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="{{ route('issue-books.release', $issueBook->id) }}"><button
+                                                    type="button" class="btn btn-primary">Accept</button></a>
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                            <form action="{{ route('issue-books.destroy', $issueBook->id) }}" method="post" class="mx-1">
+                            <form action="{{ route('issue-books.destroy', $issueBook->id) }}" method="post"
+                                class="mx-1">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger">delete</button>
