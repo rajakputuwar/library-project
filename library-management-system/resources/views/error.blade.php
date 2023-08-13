@@ -38,7 +38,7 @@
                 class="img-fluid">
             </div>
             <!-- text -->
-            <h1 class="display-4 fw-bold">Oops! the page not found <br>Or You are not eligible to access this page.</h1>
+            <h1 class="display-4 fw-bold">Oops! The page not found <br>Or You are not eligible to access this page.</h1>
             <p class="mb-4">Simply leverage the expertise of our consultation
               team.</p>
               <!-- button -->

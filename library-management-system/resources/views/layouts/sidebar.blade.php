@@ -8,7 +8,6 @@
                 <a class="nav-link has-arrow  @if(Route::is('dashboard')) active @endif " href="{{ route('dashboard') }}">
                     <i data-feather="home" class="nav-icon icon-xs me-2"></i> Dashboard
                 </a>
-
             </li>
 
             <li class="nav-item">
@@ -55,6 +54,9 @@
                     </i>
                     Books Issued
                 </a>
+            </li>
+            <li class="nav-item">
+                <div class="navbar-heading">Reports Management</div>
             </li>
             <li class="nav-item">
                 <a class="nav-link @if(Route::is('returned-books.*')) active @endif " href="{{ route('returned-books.index') }}">

@@ -26,7 +26,8 @@ use App\Http\Controllers\UserController;
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/',[HomeController::class,'index'])->name('userDashboard');
+    Route::get('/');
+    Route::get('/home',[HomeController::class,'index'])->name('userDashboard');
     Route::get('/store',[HomeController::class,'store'])->name('store');
     Route::get('/store/{id}',[HomeController::class,'show'])->name('store.show');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
