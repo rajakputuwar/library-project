@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreBookIssueRequest extends FormRequest
+class StoreIssueBookRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,16 @@ class StoreBookIssueRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'book_id'=>'required',
-            'user_id'=>'required',
-            'booked_on'=>'required'
+            'book_id' => 'required',
+            'user_id' => 'required',
+            'issued_on' => ['required', 'date', 'before:tomorrow'],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'issued_on.before' => 'The issued_on field can\'t be of future'
         ];
     }
 }

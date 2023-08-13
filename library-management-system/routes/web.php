@@ -48,4 +48,6 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::delete('/bookings/{id}',[BookingController::class,'destroy'])->name('bookings.destroy');
 });
 
+Route::any('/{any}',[HomeController::class,'error'])->where('any' , '.*');
+
 

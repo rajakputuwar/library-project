@@ -37,4 +37,9 @@ class HomeController extends Controller
 
         return view('storeShow',compact('categories'));
     }
+
+    public function error()
+    {
+        return view('error');
+    }
 }
