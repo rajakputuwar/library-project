@@ -5,6 +5,9 @@ namespace App\Console\Commands;
 use App\Models\Booking;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Mail;
+
+// use Mail;
 
 class BookingDelete extends Command
 {
@@ -34,7 +37,13 @@ class BookingDelete extends Command
             $date = Carbon::parse($booking->booked_on);
 
             if ($date->addDays(2) < $currentDate) {
+                $user = $booking->user;
+
                 $booking->delete();
+
+                Mail::send('emails.booking-delete', ['booking' => $booking], function ($message) use ($user) {
+                    $message->to($user->email)->subject('Booking Canceled');
+                });
             }
         }
     }

@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\IssueBook;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Mail;
 
 class FineCalculation extends Command
 {
@@ -37,6 +38,11 @@ class FineCalculation extends Command
             if ($date->addWeek() < $currentDate) {
                 $issueBook->fine = 0.25 * $issueBook->book->price;
                 $issueBook->save();
+                $user = $issueBook->user;
+
+                Mail::send('emails.fine',['issueBook' => $issueBook], function($message) use($user) {
+                    $message->to($user->email)->subject('Fine Charged');
+                });
             }
         }
     }
