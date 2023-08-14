@@ -3,62 +3,68 @@
 @section('title', 'Edit Books')
 
 @section('content')
-<div class="col-12">
-    <div class="card m-2 p-4">
-        <form class="" action="{{ route('books.update',$book->id) }}" method="post">
-            @csrf
-            @method('put')
+    <div class="col-12">
+        <div class="card m-2 p-4">
+            <form class="" action="{{ route('books.update', $book->id) }}" method="post">
+                @csrf
+                @method('put')
 
-            <div class="mb-3">
-                <label class="form-label" for="selectOne">Select Category<span class="text-secondary"></span></label>
-                <select class="form-select" aria-label="Default select example" name="category_id">
-                    <option>Open this select menu</option>
-                    @foreach ($categories as $category)
-                    <option value="{{ $category->id }}" @if($category->id == $book->category_id) selected @endif>{{ $category->category }}</option>
-                    @endforeach
-                </select>
-                @error('category_id')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
+                <div class="mb-3">
+                    <label class="form-label" for="selectOne">Select Category<span class="text-secondary"></span></label>
+                    <select class="form-select" aria-label="Default select example" name="category_id">
+                        <option value="">Open this select menu</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}" @if ($category->id == $book->category_id) selected @endif>
+                                {{ $category->category }}</option>
+                        @endforeach
+                    </select>
+                    @error('category_id')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
 
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Name</label>
-                <input type="text" class="form-control" name="name" id="exampleInputEmail1" value="{{ $book->name }}">
-                @error('name')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail2" class="form-label">author</label>
-                <input type="text" class="form-control" name="author" id="exampleInputEmail2" value="{{ $book->author }}">
-                @error('author')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail2" class="form-label">No.of copies</label>
-                <input type="number" class="form-control" name="total" value="{{ $book->total }}" id="exampleInputEmail2">
-                @error('total')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail2" class="form-label">Released_date</label>
-                <input type="text" class="form-control" name="released_date" id="exampleInputEmail2" value="{{ $book->released_date }}">
-                @error('released_date')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail2" class="form-label">Price</label>
-                <input type="text" class="form-control" name="price" id="exampleInputEmail2" value="{{ $book->price }}">
-                @error('price')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Name</label>
+                    <input type="text" class="form-control" name="name" id="exampleInputEmail1"
+                        value="{{ old('name') ?? $book->name }}">
+                    @error('name')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail2" class="form-label">author</label>
+                    <input type="text" class="form-control" name="author" id="exampleInputEmail2"
+                        value="{{ old('author') ?? $book->author }}">
+                    @error('author')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail2" class="form-label">No.of copies</label>
+                    <input type="number" class="form-control" name="total" value="{{ old('total') ?? $book->total }}"
+                        id="exampleInputEmail2">
+                    @error('total')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail2" class="form-label">Released_date</label>
+                    <input type="text" class="form-control" name="released_date" id="exampleInputEmail2"
+                        value="{{ old('released_date') ?? $book->released_date }}">
+                    @error('released_date')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail2" class="form-label">Price</label>
+                    <input type="text" class="form-control" name="price" id="exampleInputEmail2"
+                        value="{{ old('price') ?? $book->price }}">
+                    @error('price')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
     </div>
-</div>
 @endsection

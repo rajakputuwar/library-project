@@ -9,14 +9,14 @@
             @csrf
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Category</label>
-                <input type="text" class="form-control" name="category" id="exampleInputEmail1">
+                <input type="text" class="form-control" value="{{ old('category') }}" name="category" id="exampleInputEmail1">
                 @error('category')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail2" class="form-label">Shelf_name</label>
-                <input type="text" class="form-control" name="shelf_name" id="exampleInputEmail2">
+                <input type="text" class="form-control" value="{{ old('shelf_name') }}" name="shelf_name" id="exampleInputEmail2">
                 @error('shelf_name')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror

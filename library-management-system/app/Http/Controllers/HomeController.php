@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Booking;
 use App\Models\Category;
+use App\Models\IssueBook;
+use App\Models\ReleaseBook;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,7 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('userDashboard');
+        $user = auth()->user()->id;
+        $booksIssued = IssueBook::where('user_id' ,'=', $user)->get();
+        $bookings = Booking::where('user_id','=',$user)->get();
+        $booksReturned = ReleaseBook::where('user_id','=',$user)->get();
+        return view('userDashboard',compact('booksIssued','bookings','booksReturned'));
     }
 
     public function store()
@@ -36,5 +43,10 @@ class HomeController extends Controller
         $categories = Category::find($id);
 
         return view('storeShow',compact('categories'));
+    }
+
+    public function error()
+    {
+        return view('error');
     }
 }

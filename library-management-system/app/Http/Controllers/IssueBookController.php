@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreBookIssueRequest;
+use App\Http\Requests\StoreIssueBookRequest;
 use App\Models\Book;
 use App\Models\IssueBook;
 use App\Models\User;
@@ -43,13 +43,8 @@ class IssueBookController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreIssueBookRequest $request)
     {
-        $validated = $request->validate([
-            'book_id' => 'required',
-            'user_id' => 'required',
-            'issued_on' => ['required', 'date', 'before:tomorrow'],
-        ]);
 
         if (IssueBook::where('book_id', '=', $request->book_id)
             ->where('user_id', '=', $request->user_id)->first()

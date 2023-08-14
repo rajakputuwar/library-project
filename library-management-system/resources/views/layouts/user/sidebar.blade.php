@@ -4,13 +4,13 @@
         <!-- Navbar nav -->
         <ul class="navbar-nav flex-column" id="sideNavbar">
             <li class="nav-item">
-                <a class="nav-link has-arrow  active " href="{{ route('userDashboard') }}">
+                <a class="nav-link has-arrow  @if(Route::is('userDashboard')) active @endif" href="{{ route('userDashboard') }}">
                     <i data-feather="home" class="nav-icon icon-xs me-2"></i> Dashboard
                 </a>
 
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="{{ route('store') }}">
+                <a class="nav-link @if(Route::is('store.*') or Route::is('store')) active @endif" href="{{ route('store') }}">
                     <i data-feather="sidebar" class="nav-icon icon-xs me-2">
                     </i>
                     Books Store
