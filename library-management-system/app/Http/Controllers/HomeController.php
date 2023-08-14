@@ -22,14 +22,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        $user = auth()->user()->id;
-        $booksIssued = IssueBook::where('user_id' ,'=', $user)->get();
-        $bookings = Booking::where('user_id','=',$user)->get();
-        $booksReturned = ReleaseBook::where('user_id','=',$user)->get();
-        return view('userDashboard',compact('booksIssued','bookings','booksReturned'));
-    }
+    
 
     public function store()
     {
