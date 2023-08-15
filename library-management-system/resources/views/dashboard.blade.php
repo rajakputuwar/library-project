@@ -20,114 +20,123 @@
             </div>
             <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
                 <!-- card -->
-                <div class="card ">
-                    <!-- card body -->
-                    <div class="card-body">
-                        <!-- heading -->
-                        <div class="d-flex justify-content-between align-items-center mb-3">
+                <a href="{{ route('users.index') }}">
+                    <div class="card ">
+                        <!-- card body -->
+                        <div class="card-body">
+                            <!-- heading -->
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <h4 class="mb-0">Users</h4>
+                                </div>
+                                <div class="icon-shape icon-md bg-light-primary text-primary rounded-2">
+                                    <i class="bi bi-people fs-4"></i>
+                                </div>
+                            </div>
+                            <!-- project number -->
                             <div>
-                                <h4 class="mb-0">Users</h4>
+                                <h1 class="fw-bold">{{ $users->count() }}</h1>
+                                {{-- <p class="mb-0"><span class="text-dark me-2">2<sspan>Completed</p> --}}
                             </div>
-                            <div class="icon-shape icon-md bg-light-primary text-primary rounded-2">
-                                <i class="bi bi-people fs-4"></i>
-                            </div>
-                        </div>
-                        <!-- project number -->
-                        <div>
-                            <h1 class="fw-bold">{{ $users->count() }}</h1>
-                            {{-- <p class="mb-0"><span class="text-dark me-2">2<sspan>Completed</p> --}}
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
                 <!-- card -->
-                <div class="card ">
-                    <!-- card body -->
-                    <div class="card-body">
-                        <!-- heading -->
-                        <div class="d-flex justify-content-between align-items-center mb-3">
+                <a href="{{ route('books.index') }}">
+                    <div class="card ">
+                        <!-- card body -->
+                        <div class="card-body">
+                            <!-- heading -->
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <h4 class="mb-0">Books</h4>
+                                </div>
+                                <div class="icon-shape icon-md bg-light-primary text-primary rounded-2">
+                                    <i class="bi bi-list-task fs-4"></i>
+                                </div>
+                            </div>
+                            <!-- project number -->
                             <div>
-                                <h4 class="mb-0">Books</h4>
+                                <h1 class="fw-bold">{{ $books->count() }}</h1>
+                                {{-- <p class="mb-0"><span class="text-dark me-2">28</span>Completed</p> --}}
                             </div>
-                            <div class="icon-shape icon-md bg-light-primary text-primary rounded-2">
-                                <i class="bi bi-list-task fs-4"></i>
-                            </div>
-                        </div>
-                        <!-- project number -->
-                        <div>
-                            <h1 class="fw-bold">{{ $books->count() }}</h1>
-                            {{-- <p class="mb-0"><span class="text-dark me-2">28</span>Completed</p> --}}
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
                 <!-- card -->
-                <div class="card ">
-                    <!-- card body -->
-                    <div class="card-body">
-                        <!-- heading -->
-                        <div class="d-flex justify-content-between align-items-center mb-3">
+                <a href="{{ route('bookings.index') }}">
+                    <div class="card ">
+                        <!-- card body -->
+                        <div class="card-body">
+                            <!-- heading -->
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <h4 class="mb-0">Bookings</h4>
+                                </div>
+                                <div class="icon-shape icon-md bg-light-primary text-primary rounded-2">
+                                    <i class="bi bi-list-task fs-4"></i>
+                                </div>
+                            </div>
+                            <!-- project number -->
                             <div>
-                                <h4 class="mb-0">Bookings</h4>
+                                <h1 class="fw-bold">{{ $bookings->count() }}</h1>
+                                {{-- <p class="mb-0"><span class="text-dark me-2">28</span>Completed</p> --}}
                             </div>
-                            <div class="icon-shape icon-md bg-light-primary text-primary rounded-2">
-                                <i class="bi bi-list-task fs-4"></i>
-                            </div>
-                        </div>
-                        <!-- project number -->
-                        <div>
-                            <h1 class="fw-bold">{{ $bookings->count() }}</h1>
-                            {{-- <p class="mb-0"><span class="text-dark me-2">28</span>Completed</p> --}}
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
                 <!-- card -->
-                <div class="card ">
-                    <!-- card body -->
-                    <div class="card-body">
-                        <!-- heading -->
-                        <div class="d-flex justify-content-between align-items-center mb-3">
+                <a href="{{ route('issue-books.index') }}">
+                    <div class="card ">
+                        <!-- card body -->
+                        <div class="card-body">
+                            <!-- heading -->
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <h4 class="mb-0">Books Issued</h4>
+                                </div>
+                                <div class="icon-shape icon-md bg-light-primary text-primary rounded-2">
+                                    <i class="bi bi-people fs-4"></i>
+                                </div>
+                            </div>
+                            <!-- project number -->
                             <div>
-                                <h4 class="mb-0">Books Issued</h4>
+                                <h1 class="fw-bold">{{ $booksIssued->count() }}</h1>
+                                {{-- <p class="mb-0"><span class="text-dark me-2">1</span>Completed</p> --}}
                             </div>
-                            <div class="icon-shape icon-md bg-light-primary text-primary rounded-2">
-                                <i class="bi bi-people fs-4"></i>
-                            </div>
-                        </div>
-                        <!-- project number -->
-                        <div>
-                            <h1 class="fw-bold">{{ $booksIssued->count() }}</h1>
-                            {{-- <p class="mb-0"><span class="text-dark me-2">1</span>Completed</p> --}}
                         </div>
                     </div>
-                </div>
-
+                </a>
             </div>
             <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
                 <!-- card -->
-                <div class="card ">
-                    <!-- card body -->
-                    <div class="card-body">
-                        <!-- heading -->
-                        <div class="d-flex justify-content-between align-items-center mb-3">
+                <a href="{{ route('returned-books.index') }}">
+                    <div class="card ">
+                        <!-- card body -->
+                        <div class="card-body">
+                            <!-- heading -->
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <h4 class="mb-0">Books Returned</h4>
+                                </div>
+                                <div class="icon-shape icon-md bg-light-primary text-primary rounded-2">
+                                    <i class="bi bi-bullseye fs-4"></i>
+                                </div>
+                            </div>
+                            <!-- project number -->
                             <div>
-                                <h4 class="mb-0">Books Returned</h4>
+                                <h1 class="fw-bold">{{ $booksReturned->count() }}</h1>
+                                {{-- <p class="mb-0"><span class="text-success me-2">5%</span>Completed</p> --}}
                             </div>
-                            <div class="icon-shape icon-md bg-light-primary text-primary rounded-2">
-                                <i class="bi bi-bullseye fs-4"></i>
-                            </div>
-                        </div>
-                        <!-- project number -->
-                        <div>
-                            <h1 class="fw-bold">{{ $booksReturned->count() }}</h1>
-                            {{-- <p class="mb-0"><span class="text-success me-2">5%</span>Completed</p> --}}
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
         <!-- row  -->
