@@ -14,7 +14,7 @@
                     <th scope="col">S.No</th>
                     <th scope="col">Category</th>
                     <th scope="col">Shelf Name</th>
-                    <th scope="col">No. of books</th>
+                    <th scope="col">Book items</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
