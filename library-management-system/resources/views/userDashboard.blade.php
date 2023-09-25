@@ -137,7 +137,9 @@
                                         <td class="align-middle">{{ $loop->iteration }}</td>
                                         <td class="align-middle">{{ $bookIssued->book->name }}</td>
                                         <td class="align-middle">{{ $bookIssued->issued_on }}</td>
-                                        <td class="align-middle">{{ \Carbon\Carbon::parse($bookIssued->issued_on)->addWeek()->format('Y-m-d') }}</td>
+                                        <td class="align-middle">
+                                            {{ \Carbon\Carbon::parse($bookIssued->issued_on)->addWeek()->format('Y-m-d') }}
+                                        </td>
                                         <td class="align-middle">{{ $bookIssued->fine }}</td>
                                     </tr>
                                 @endforeach

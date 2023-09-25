@@ -53,9 +53,7 @@ class BookingController extends Controller
                 'user_id' => $booking->user_id,
                 'issued_on' => Carbon::today()->toDateString()
             ]);
-            $book = Book::find($booking->book_id);
-            $book->available = $book->total - $book->issuebook->count() - $book->booking->count();
-            $book->save();
+
             $booking->delete();
             return redirect(route('bookings.index'))->with('success', 'book issued successfully');
         }
