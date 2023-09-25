@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Mail for the fine</title>
+    <title>Mail concerning fine</title>
 </head>
 
 <body>
