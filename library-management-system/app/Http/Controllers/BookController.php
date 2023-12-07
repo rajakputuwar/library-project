@@ -18,8 +18,8 @@ class BookController extends Controller
         if ($search != "")
             $books = Book::where("name", "LIKE", "%$search%")->get();
         else
-            $books = Book::get();
-
+            $books = Book::orderBy('name','asc')->get();
+        
         return view('books.index', compact('books', 'search'));
     }
     // $books=Book::get();

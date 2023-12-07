@@ -38,13 +38,16 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::get('/admin-dashboard', [DashboardController::class, 'adminIndex'])->name('dashboard');
+    
     Route::resource('categories', CategoryController::class);
     Route::resource('books', BookController::class);
     Route::resource('issue-books', IssueBookController::class);
     Route::resource('users', UserController::class);
+    
     Route::get('/users/{id}/profile', [UserController::class, 'profile'])->name('users.profile');
     Route::get('/returned-books', [ReleaseBookController::class, 'index'])->name('returned-books.index');
     Route::get('/books-issue/release/{id}', [ReleaseBookController::class, 'release'])->name('issue-books.release');
+    
     Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
     Route::get('/bookings/{id}/issue', [BookingController::class, 'issue'])->name('bookings.issue');
     Route::delete('/bookings/{id}', [BookingController::class, 'destroy'])->name('bookings.destroy');

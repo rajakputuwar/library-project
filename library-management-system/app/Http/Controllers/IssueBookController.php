@@ -107,6 +107,9 @@ class IssueBookController extends Controller
      */
     public function destroy(IssueBook $issueBook)
     {
+        $book = Book::find($issueBook->book_id);
+        $book->available += 1;
+        $book->save();
         $issueBook->delete();
         return redirect(route('issue-books.index'))->with('success', 'issued book deleted successfully');
     }

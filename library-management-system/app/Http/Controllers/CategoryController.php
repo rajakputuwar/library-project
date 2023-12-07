@@ -18,7 +18,7 @@ class CategoryController extends Controller
         if ($search != "")
             $categories = Category::where("category", "LIKE", "%$search%")->get();
         else
-            $categories = Category::get();
+            $categories = Category::orderBy('category','asc')->get();
 
         return view('categories.index', compact('categories','search'));
     }

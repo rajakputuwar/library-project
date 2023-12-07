@@ -1,14 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="d-flex">
-        <a href="{{ route('issue-books.create') }}">
-            <button type="submit" class="btn btn-primary m-2">Issue New Book</button>
-        </a>
-    </div>
-
-    <div class="card m-2 p-4">
-        @if (Session::has('success'))
+@if (Session::has('success'))
             <div class="alert alert-success" role="alert">
                 {{ session('success') }}
             </div>
@@ -18,6 +11,17 @@
                 {{ session()->get('failure') }}
             </div>
         @endif
+    
+
+    <div class="card m-2 p-4">
+        <div class="d-flex justify-content-between">
+            <h3 class="mt-2">Issued Books List</h3>
+
+            <a href="{{ route('issue-books.create') }}">
+                <button type="submit" class="btn btn-primary mx-2">Issue New Book</button>
+            </a>
+        </div>
+        <hr>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -36,18 +40,19 @@
                         <td>{{ $issueBook->book->name }}</td>
                         <td>{{ $issueBook->user->name }}</td>
                         <td>{{ $issueBook->issued_on }}</td>
-                        <td>{{ $issueBook->fine }}</td>
+                        <td><span class="">{{ $issueBook->fine }}</span></td>
                         <td class="d-flex">
                             {{-- <a href="{{ route('issue-books.edit', $issueBook->id) }}"><button type="submit"
                                     class="btn btn-primary mb-2"> Edit</button></a> --}}
                             <!-- Button trigger modal -->
-                            @if($issueBook->fine)
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                data-bs-target="#exampleModalCenter">
-                                Release
-                            </button>
+                            @if ($issueBook->fine)
+                                <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModalCenter">
+                                    Release
+                                </button>
                             @else
-                            <a href="{{ route('issue-books.release',$issueBook->id) }}"><button type="submit`" class="btn btn-success">Release</button></a>
+                                <a href="{{ route('issue-books.release', $issueBook->id) }}"><button type="submit`"
+                                        class="btn btn-success">Release</button></a>
                             @endif
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"

@@ -7,13 +7,25 @@ use App\Models\Booking;
 use App\Models\IssueBook;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BookingController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $bookings = Booking::orderBy('booked_on', 'desc')->get();
+        // $bookings = Booking::orderBy('booked_on', 'desc')->get();
+        $search = $request->search;
+        $bookings = Booking::where(function ($query) use ($search) {
+            $query->where('booked_on', 'LIKE', "%$search%");
+        })
+            ->orWhereHas('book', function ($query) use ($search) {
+                $query->where('name', 'like', "%$search%");
+            })
+            ->orWhereHas('user', function ($query) use ($search) {
+                $query->where('name', 'like', "%$search%");
+            })->get();
+
         return view('booking.index', compact('bookings'));
     }
 
@@ -61,8 +73,22 @@ class BookingController extends Controller
 
     public function destroy($id)
     {
-        Booking::findOrFail($id)->delete();
-        return redirect(route('bookings.index'))->with('success', 'book deleted successfully');
+        try {
+            DB::beginTransaction();
 
+            $booking = Booking::findOrFail($id);
+            $book = Book::find($booking->book_id);
+            $book->available += 1;
+            $book->save();
+            $booking->delete();
+
+            DB::commit();
+
+            return redirect(route('bookings.index'))->with('success', 'booking deleted successfully');
+        } catch (\Exception $e) {
+
+            DB::rollback();
+            return redirect(route('bookings.index'))->with('failure', 'booking deletion failure');
+        }
     }
 }

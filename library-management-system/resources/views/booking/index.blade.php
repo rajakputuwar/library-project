@@ -1,17 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="card m-2 p-4">
-        @if (Session::has('success'))
-            <div class="alert alert-success" role="alert">
-                {{ session('success') }}
-            </div>
-        @endif
-        @if (Session::has('failure'))
+    @if (Session::has('success'))
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if (Session::has('failure'))
         <div class="alert alert-danger">
             {{ session('failure') }}
         </div>
     @endif
+    <div class="card m-2 p-4">
+        <h3 class="mt-2">Bookings List</h3>
+        <hr>
         <table class="table table-striped">
             <thead>
                 <tr>

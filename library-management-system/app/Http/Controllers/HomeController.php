@@ -34,8 +34,8 @@ class HomeController extends Controller
     public function show($id)
     {
         $categories = Category::find($id);
-
-        return view('storeShow',compact('categories'));
+        $bookings = Booking::get();
+        return view('storeShow',compact('categories','bookings'));
     }
 
     public function error()

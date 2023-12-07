@@ -1,13 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <a href="{{ route('categories.create') }}"><button type="submit" class="btn btn-primary m-2">Add Category</button></a>
+    @if (Session::has('success'))
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <div class="card m-2 p-4">
-        @if (Session::has('success'))
-            <div class="alert alert-success" role="alert">
-                {{ session('success') }}
-            </div>
-        @endif
+        <div class="d-flex justify-content-between">
+            <h3 class="mt-2">Categories List</h3>
+            <a href="{{ route('categories.create') }}">
+                <button type="submit" class="btn btn-primary mx-5">Add
+                    Category</button>
+                </a>
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr>

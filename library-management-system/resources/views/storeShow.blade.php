@@ -27,8 +27,7 @@
                             <h4 class="card-title">Price: <em>{{ $book->price }}</em></h4>
                             @if ($book->available)
                                 <p class="card-text text-success"> Available</p>
-                                <form action="{{ route('bookings.store',) }}"
-                                    method="post">
+                                <form action="{{ route('bookings.store') }}" method="post">
                                     @csrf
                                     <input type="hidden" name="book_id" value="{{ $book->id }}">
                                     <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">

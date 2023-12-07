@@ -1,14 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-    <a href="{{ route('books.create') }}">
-        <button type="submit" class="btn btn-primary m-2">Add Books</button></a>
+    @if (Session::has('success'))
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
+    @endif
     <div class="card m-2 p-4">
-        @if (Session::has('success'))
-            <div class="alert alert-success" role="alert">
-                {{ session('success') }}
-            </div>
-        @endif
+        <div class="d-flex justify-content-between">
+            <h3 class="mt-2">Books List</h3>
+            <a href="{{ route('books.create') }}">
+                <button class="btn btn-primary mx-5">Add</button>
+            </a>
+        </div>
+        <hr>
         <table class="table table-striped">
             <thead>
                 <tr>

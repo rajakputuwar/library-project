@@ -4,7 +4,7 @@
 @section('content')
 
     <div class="card m-2 p-4">
-        <caption class="fs-4"> Report on the returned books </caption>
+        <h3 class="mt-2">Returned Books List</h3>
         <hr>
         <table class="table table-striped">
             <thead>
@@ -26,7 +26,7 @@
                         <td>{{ $returnedBook->user->name }}</td>
                         <td>{{ $returnedBook->issued_on }}</td>
                         <td>{{ $returnedBook->returned_on }}</td>
-                        <td>{{ $returnedBook->fine }}</td>
+                        <td><span class="badge bg-danger fs-5">{{ $returnedBook->fine }}</span></td>
                         <td>{{ $returnedBook->released_by }}</td>
                     </tr>
                 @endforeach
