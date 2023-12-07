@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Books Issue')
+
 @section('content')
 @if (Session::has('success'))
             <div class="alert alert-success" role="alert">
