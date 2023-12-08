@@ -77,9 +77,7 @@ class IssueBookController extends Controller
      */
     public function edit(IssueBook $issueBook)
     {
-        // $books = Book::get();
-        // $users = User::get();
-        // return view('books_issue.edit_issue_books', compact('issueBook', 'books', 'users'));
+        //
     }
 
     /**
@@ -87,19 +85,7 @@ class IssueBookController extends Controller
      */
     public function update(Request $request, IssueBook $issueBook)
     {
-        // $validated = $request->validate([
-        //     'book_id' => ['required', 'unique:issue_books,book_id,' . $issueBook->id],
-        //     'user_id' => 'required',
-        //     'issued_on' => ['required', 'date', 'before:tomorrow'],
-        // ]);
-        // $issueBook->user_id = $request->user_id;
-        // $issueBook->book_id = $request->book_id;
-        // $issueBook->save();
-        // $book = Book::find($request->book_id);
-        // $book->available = $book->total - $book->issuebook->count() - $book->booking->count();
-        // $book->save();
-        // $issueBook->update($request->all());
-        // return redirect(route('issue-books.index'))->with('success', 'issued book updated successfully');
+        //
     }
 
     /**

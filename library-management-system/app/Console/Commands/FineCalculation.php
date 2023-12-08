@@ -40,7 +40,7 @@ class FineCalculation extends Command
                 $issueBook->save();
                 $user = $issueBook->user;
 
-                Mail::send('emails.fine',['issueBook' => $issueBook], function($message) use($user) {
+                Mail::send('emails.fine', ['issueBook' => $issueBook], function ($message) use ($user) {
                     $message->to($user->email)->subject('Fine Charged');
                 });
             }

@@ -5,19 +5,6 @@
 
     <div class="container-fluid mt-n22 px-6">
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-12">
-                <!-- Page header -->
-                <div>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="mb-2 mb-lg-0">
-                            {{-- <h3 class="mb-0  text-white">Projects</h3> --}}
-                        </div>
-                        <div>
-                            {{-- <a href="#" class="btn btn-white">Create New Project</a> --}}
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="col-xl-3 col-lg-6 col-md-12 col-12 mt-6">
                 <!-- card -->
                 <div class="card ">

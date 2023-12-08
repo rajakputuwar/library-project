@@ -14,7 +14,6 @@ class BookingController extends Controller
 
     public function index(Request $request)
     {
-        // $bookings = Booking::orderBy('booked_on', 'desc')->get();
         $search = $request->search;
         $bookings = Booking::where(function ($query) use ($search) {
             $query->where('booked_on', 'LIKE', "%$search%");

@@ -5,7 +5,6 @@
 
 <body class="bg-light">
     <div id="db-wrapper">
-        <!-- navbar vertical -->
         <!-- Sidebar -->
         @include('layouts.sidebar')
         <!-- Page content -->
@@ -17,9 +16,7 @@
             @yield('content')
         </div>
     </div>
-
     @include('layouts.script')
-
 </body>
 
 </html>

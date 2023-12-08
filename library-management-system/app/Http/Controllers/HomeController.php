@@ -22,20 +22,20 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    
+
 
     public function store()
     {
         $categories = Category::get();
         $books = Book::get();
-        return view('store', compact('books','categories'));
+        return view('store', compact('books', 'categories'));
     }
 
     public function show($id)
     {
         $categories = Category::find($id);
         $bookings = Booking::get();
-        return view('storeShow',compact('categories','bookings'));
+        return view('storeShow', compact('categories', 'bookings'));
     }
 
     public function error()

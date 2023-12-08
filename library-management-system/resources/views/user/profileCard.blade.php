@@ -171,7 +171,6 @@
             -webkit-transition: all 0.3s ease-in-out;
             transition: all 0.3s ease-in-out;
         }
-
     </style>
 </head>
 
@@ -273,12 +272,10 @@
         });
     </script>
     <script>
-         function printFnc()
-        {
-            document.getElementById('btn').style.display= 'none';
+        function printFnc() {
+            document.getElementById('btn').style.display = 'none';
             window.print();
-            document.getElementById('btn').style.display= 'block';
-
+            document.getElementById('btn').style.display = 'block';
         }
     </script>
 </body>
