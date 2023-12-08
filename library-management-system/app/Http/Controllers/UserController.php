@@ -12,10 +12,19 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::get();
-        return view('user.index',compact('users'));
+        $search = $request->search;
+        $users = User::where(function ($query) use ($search) {
+            $query->where('name', 'LIKE', "%$search%")
+                ->orWhere('email', 'LIKE', "%$search%")
+                ->orWhere('phone', 'LIKE', "%$search%")
+                ->orWhere('college_id', 'LIKE', "%$search%")
+                ->orWhere('isAdmin', 'LIKE', "%$search%");
+        })->get();
+
+
+        return view('user.index', compact('users'));
     }
 
     /**
@@ -39,10 +48,10 @@ class UserController extends Controller
             $filename = $file_extension;
             $request->file('image')->move($destination_path, $filename);
             $input['image'] = $filename;
-        }else {
+        } else {
             $input['image'] = 'default_user.png';
         }
-            User::create($input);
+        User::create($input);
 
         return redirect(route('users.index'))->with('success', 'user stored successfully');
     }
@@ -69,7 +78,7 @@ class UserController extends Controller
     {
         $input = $request->all();
         if ($request->hasFile('image')) {
-            File::delete(public_path().'/uploads/users/'.$user->image);
+            File::delete(public_path() . '/uploads/users/' . $user->image);
             $file = $request->file('image');
             $file_extension = $file->getClientOriginalName();
             $destination_path = public_path() . '/uploads/users/';
@@ -93,6 +102,6 @@ class UserController extends Controller
     public function profile($id)
     {
         $user = User::find($id);
-        return view('user.profileCard',compact('user'));
+        return view('user.profileCard', compact('user'));
     }
 }
