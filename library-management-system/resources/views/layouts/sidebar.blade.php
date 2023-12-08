@@ -58,7 +58,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <div class="navbar-heading">Reports Management</div>
+                <div class="navbar-heading">Report Management</div>
             </li>
             <li class="nav-item">
                 <a class="nav-link @if (Route::is('returned-books.*')) active @endif "
@@ -70,4 +70,4 @@
             </li>
         </ul>
     </div>
-</nav>
+</nav>`
