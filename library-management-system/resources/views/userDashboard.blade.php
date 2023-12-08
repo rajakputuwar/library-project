@@ -127,7 +127,39 @@
                                         <td class="align-middle">
                                             {{ \Carbon\Carbon::parse($bookIssued->issued_on)->addWeek()->format('Y-m-d') }}
                                         </td>
-                                        <td class="align-middle">{{ $bookIssued->fine }}</td>
+                                        <td class="align-middle"><span class="badge bg-danger p-2">{{ $bookIssued->fine }}</span></td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card my-5">
+                    <!-- card header  -->
+                    <div class="card-header bg-white  py-4">
+                        <h4 class="mb-0">Currently Booked</h4>
+                    </div>
+                    <!-- table  -->
+                    <div class="table-responsive">
+                        <table class="table text-nowrap mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>S.No</th>
+                                    <th>Books</th>
+                                    <th>Booked On</th>
+                                    <th>Cancels On</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($bookings as $booking)
+                                    <tr>
+                                        <td class="align-middle">{{ $loop->iteration }}</td>
+                                        <td class="align-middle">{{ $booking->book->name }}</td>
+                                        <td class="align-middle">{{ $booking->booked_on }}</td>
+                                        <td class="align-middle">
+                                            {{ \Carbon\Carbon::parse($booking->issued_on)->addDays(2)->format('Y-m-d') }}
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
