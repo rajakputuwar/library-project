@@ -29,7 +29,7 @@ class AdminSeeder extends Seeder
             'college_id' => 102,
             'phone' => 9800000001,
             'address' => 'kathmandu',
-            'email' => 'photosonly6374@test.com',
+            'email' => 'photosonly6374@gmail.com',
             'password' => Hash::make('password'),
             'isAdmin' => 0,
         ]);
