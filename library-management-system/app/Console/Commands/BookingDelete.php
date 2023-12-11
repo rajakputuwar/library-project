@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Book;
 use App\Models\Booking;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
@@ -39,6 +40,9 @@ class BookingDelete extends Command
             if ($date->addDays(2) < $currentDate) {
                 $user = $booking->user;
 
+                $book = Book::find($booking->book_id);
+                $book->available += 1;
+                $book->save();
                 $booking->delete();
 
                 Mail::send('emails.booking-delete', ['booking' => $booking], function ($message) use ($user) {
