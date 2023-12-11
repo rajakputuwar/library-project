@@ -9,7 +9,6 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IssueBookController;
-use App\Http\Controllers\MailController;
 use App\Http\Controllers\ReleaseBookController;
 use App\Http\Controllers\UserController;
 
@@ -53,5 +52,4 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::delete('/bookings/{id}', [BookingController::class, 'destroy'])->name('bookings.destroy');
 });
 
-Route::get('send-mail', [MailController::class, 'index']);
 Route::any('/{any}', [HomeController::class, 'error'])->where('any', '.*');

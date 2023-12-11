@@ -43,10 +43,9 @@ class UserController extends Controller
         $input = $request->all();
         if ($request->hasFile('image')) {
             $file = $request->file('image');
-            $file_extension = $file->getClientOriginalName();
+            $filename = $file->getClientOriginalName();
             $destination_path = public_path() . '/uploads/users/';
-            $filename = $file_extension;
-            $request->file('image')->move($destination_path, $filename);
+            $file->move($destination_path, $filename);
             $input['image'] = $filename;
         } else {
             $input['image'] = 'default_user.png';
@@ -78,12 +77,13 @@ class UserController extends Controller
     {
         $input = $request->all();
         if ($request->hasFile('image')) {
-            File::delete(public_path() . '/uploads/users/' . $user->image);
+            if ($user->image != "default_user.png") {
+                File::delete(public_path() . '/uploads/users/' . $user->image);
+            }
             $file = $request->file('image');
-            $file_extension = $file->getClientOriginalName();
+            $filename = $file->getClientOriginalName();
             $destination_path = public_path() . '/uploads/users/';
-            $filename = $file_extension;
-            $request->file('image')->move($destination_path, $filename);
+            $file->move($destination_path, $filename);
             $input['image'] = $filename;
         }
         $user->update($input);
