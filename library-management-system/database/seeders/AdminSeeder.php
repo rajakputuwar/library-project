@@ -19,7 +19,6 @@ class AdminSeeder extends Seeder
             'college_id' => 101,
             'phone' => 9800000000,
             'address' => 'kathmandu',
-            'image' => '/uploads/default_user.png',
             'email' => 'admin@test.com',
             'password' => Hash::make('password'),
             'isAdmin' => 1,
